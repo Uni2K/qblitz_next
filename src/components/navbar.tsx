@@ -17,6 +17,7 @@ type NavbarEntry = {
     label: string,
     selected?: boolean,
     link: string,
+    subEntries?: NavbarEntry[]
 }
 
 
@@ -39,7 +40,8 @@ export const DashboardSidebar = () => {
         },
         {
             label: "Wissenswertes",
-            link: "/wissenswertes"
+            link: "/wissenswertes",
+            subEntries: [{label: "Blitzarten", link: "/arten"}]
         },
         {
             label: "Bildbeispiele",
