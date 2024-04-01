@@ -30,7 +30,7 @@ export default function RootLayout({
         <main className="flex flex-col">
             {children}
         </main>
-        <footer className={"flex items-center justify-center p-16 pt-8"}>
+        <footer className={"flex items-center justify-center p-8 pt-8 text-sm text-faded-navy"}>
             Copyright 2024 @ Prüfdienst für Blitzschutz
         </footer>
 

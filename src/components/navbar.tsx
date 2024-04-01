@@ -26,10 +26,6 @@ export const DashboardSidebar = () => {
 
     let selectedItem = 0
 
-   if (pathname.includes("/contact")) {
-        selectedItem = 4;
-    }
-
 
     const entries: NavbarEntry[] = [
 
@@ -43,18 +39,24 @@ export const DashboardSidebar = () => {
         },
         {
             label: "Wissenswertes",
-            link: "/knowledge"
+            link: "/wissenswertes"
         },
         {
             label: "Bildbeispiele",
-            link: "/gallery"
+            link: "/gallerie"
         },
         {
             label: "Kontakt & Impressum",
-            link: "/contact"
+            link: "/kontakt"
         },
-
     ]
+
+
+    for (let entry of entries) {
+        if (pathname.includes(entry.link)) {
+            selectedItem = entries.indexOf(entry);
+        }
+    }
 
 
     if (entries[selectedItem]) {

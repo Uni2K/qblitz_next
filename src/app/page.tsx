@@ -28,34 +28,34 @@ export default async function Home() {
                 alt={"background"}/>
 
             <div className={"z-10 text-white flex flex-row gap-8 mx-auto items-center justify-end "}>
-                <Link href={"#blitzschutz"}
+                <Link href={"#leistungen"}
                       className={"flex gap-4 items-center cursor-pointer hover:bg-default-hover py-2 pr-5 px-4"}>
                     <IconLightning className={"h-6 fill-white"}/>Innerer
                     &<br/> Äußerer Blitzschutz
                 </Link>
                 <div className={"h-[40px] bg-layout-separator w-[1px]"}/>
-                <div
+                <Link href={"#zeichnungen"}
                     className={"flex gap-4 items-center cursor-pointer hover:bg-default-hover py-2 pr-5 px-4"}>
                     <IconDrawing className={"h-6 fill-white"}/>Technische
                     &<br/> Zeichnungen
-                </div>
+                </Link>
                 <div className={"h-[40px] bg-layout-separator w-[1px]"}/>
-                <div
+                <Link href={"#andere_leistungen"}
                     className={"flex gap-4 items-center cursor-pointer hover:bg-default-hover py-2 pr-5 px-4"}>
                     <IconCoach className={"h-6 fill-white"}/>Beratung
                     &<br/> Gutachten
-                </div>
+                </Link>
                 <div className={"h-[40px] bg-layout-separator w-[1px]"}/>
-                <div
+                <Link href={"#andere_leistungen"}
                     className={"flex gap-4 items-center cursor-pointer hover:bg-default-hover py-2 pr-5 px-4"}>
                     <IconLadder className={"h-6 fill-white"}/>Materialverkauf
                     &<br/> Leiternprüfung
-                </div>
+                </Link>
 
             </div>
         </div>
-        <div className={"z-10 my-24 bg-layout-separator h-[1px] w-full"}></div>
-        <div className={"z-10 w-[70%] mx-auto pl-14"} id={"blitzschutz"}>
+        <div className={"z-10 my-24 bg-layout-separator h-[1px] w-full"} id={"leistungen"}></div>
+        <div className={"z-10 w-[70%] mx-auto pl-14"} >
             <h2 className={"flex gap-4 items-center -ml-14"}>
                 <IconLightning className={"h-10 fill-white"}/>Innerer
                 &<br/> Äußerer Blitzschutz
@@ -66,7 +66,7 @@ export default async function Home() {
                 <br/>
                 Wir bieten deshalb folgende Leistungen an:
 
-                <div className={"flex mt-12 gap-12 flex-wrap"}>
+                <div className={"flex mt-12 gap-14 flex-wrap"}>
                     <ImageCard isForNewStatus={0}
                                image={image1}
                                title={"Planung"}
@@ -87,7 +87,7 @@ export default async function Home() {
                     Für bestehende Hallen, Betriebsgebiete, Schulen etc. bieten wir folgende Leistungen an:
                 </p>
 
-                <div className={"flex gap-12 flex-wrap"}>
+                <div className={"flex gap-14 flex-wrap"}>
 
                     <ImageCard isForNewStatus={1}
                                title={"Prüfung"}
@@ -106,8 +106,8 @@ export default async function Home() {
 
 
         </div>
-        <div className={"z-10 my-24 bg-layout-separator h-[1px] w-full"}></div>
-        <div className={"z-10 w-[70%] mx-auto pb-24"} id={"leistungen"}>
+        <div className={"z-10 my-24 bg-layout-separator h-[1px] w-full"} id={"zeichnungen"}></div>
+        <div className={"z-10 w-[70%] mx-auto pb-24"}>
             <div>
 
                 <div className={"flex flex-row gap-12"}>
@@ -137,7 +137,7 @@ export default async function Home() {
                     </div>
 
                 </div>
-                <div className={"flex mt-24 gap-24 flex-wrap pl-20 "}>
+                <div className={"flex mt-24 gap-24 flex-wrap pl-20 "} id={"andere_leistungen"}>
                     <div className={"max-w-[550px] p-4"}>
                         <div className={"font-bold mb-4 flex flex-row gap-4 -ml-10"}><IconSelling
                             className={"w-6 fill-white"}/>Materialverkauf

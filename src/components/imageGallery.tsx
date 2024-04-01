@@ -1,6 +1,6 @@
 'use client'
 
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import 'react-image-lightbox/style.css';
 import 'lightgallery/css/lightgallery.css';
 import lgZoom from 'lightgallery/plugins/zoom';
@@ -137,7 +137,7 @@ let fileNames = [
 ]
 
 const ImageGallery: React.FC = () => {
-
+    const [isLoading, setLoading] = useState(true)
 
     useEffect(() => {
         fjGallery(document.querySelectorAll('.gallery'), {
@@ -148,6 +148,7 @@ const ImageGallery: React.FC = () => {
             rowHeightTolerance: 0.1,
             calculateItemsHeight: false,
         });
+        setLoading(false)
     }, []);
 
 

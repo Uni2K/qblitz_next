@@ -1,4 +1,6 @@
 import location from '../../../public/location.png'
+import mapslogo from '../../../public/maps.png'
+
 import React from "react";
 import IconEmail from "@/components/icons/iconEmail";
 import IconPhone from "@/components/icons/iconPhone";
@@ -27,16 +29,18 @@ export default async function Home() {
                             036484 / 22457
                         </div>
                         <a href={"mailto:info@qblitz.de"}
-                           className={"flex w-fit px-4 py-2 gap-4 items-center bg-white/10 cursor-pointer"}>
+                           className={"flex w-fit px-4 py-2 gap-4 items-center bg-white/5 cursor-pointer hover:bg-default-hover"}>
                             <IconEmail className={"h-4 fill-white"}/>
                             info@qblitz.de
                         </a>
                     </div>
                 </div>
                 <div className={"basis-[53%] p-0"}>
-                    <Image
+                    <div className={"relative"}><Link href={"https://maps.app.goo.gl/RTRutB2RHsCGnzSR8"} target={"_blank"}><Image
                         src={location} className={""}
-                        alt={"background"}/>
+                        alt={"map"}/></Link>
+                        <Image src={mapslogo} alt={"maps Logo"} className={"w-24 absolute bottom-4 right-4"}/>
+                    </div>
                     <div className={"text-sm flex flex-row gap-12 p-4  w-fit items-end mt-4 text-faded-navy"}>
                         <div>
                             <div className={"font-bold"}>Postanschrift & Büro</div>
