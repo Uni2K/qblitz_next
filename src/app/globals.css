@@ -1,0 +1,200 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import 'scrollbars.css';
+
+@layer base {
+    html,
+    body,
+    div#__next {
+        font-size: 16px; /* Base Font Size */
+        @apply m-0 h-full !bg-background font-primary text-white ;
+        font-family: Arial, Helvetica, sans-serif;
+        /*bg because cookie consent can fck up colors*/
+        /*scrollbar-color: #d4d9ec transparent; !* firefox track thumb *!*/
+        /*scrollbar-width: thin; !* firefox  scrollbar width*!*/
+    }
+
+    ul {
+        @apply my-4 list-inside list-disc pl-10;
+    }
+
+    h1 {
+        @apply text-heading2 font-bold;
+    }
+
+    h2 {
+        @apply text-heading3 font-bold;
+    }
+
+    h3 {
+        @apply text-heading4 font-bold;
+    }
+
+    h4 {
+        @apply text-heading4 font-bold;
+    }
+
+    h5 {
+        @apply mb-1 mt-4 font-bold;
+    }
+
+    .subtitle {
+        @apply text-subtitle font-regular;
+    }
+
+    .paragraph {
+        @apply text-paragraph font-regular;
+    }
+
+    .label {
+        @apply text-label font-medium;
+    }
+
+
+    .card:hover::before {
+        opacity: 1;
+    }
+
+    .card::before {
+        border-radius: inherit;
+        content: "";
+        opacity: 0;
+        transition: opacity 500ms;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    .card::before {
+        background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(0, 0, 0, 0.07), transparent 40%);
+        z-index: 3;
+    }
+
+    .positive {
+        @apply fill-primary-success
+    }
+
+    .neutral {
+        @apply fill-primary-neutral
+    }
+    .neutralEmphasized {
+        @apply fill-primary-neutral-emphasized bg-primary-neutral-emphasized/20
+    }
+    .negative {
+        @apply fill-primary-error
+    }
+    .negativeEmphasized {
+        @apply fill-primary-error bg-primary-error/20
+    }
+
+    @-webkit-keyframes fadeout {
+        from {
+            bottom: 30px;
+            opacity: 1;
+        }
+        to {
+            bottom: 0;
+            opacity: 0;
+        }
+    }
+
+    @keyframes fadeout {
+        from {
+            bottom: 30px;
+            opacity: 1;
+        }
+        to {
+            bottom: 0;
+            opacity: 0;
+        }
+    }
+
+
+    /* For Webkit-based browsers (Chrome, Safari and Opera) */
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* For IE, Edge and Firefox */
+    .scrollbar-hide {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+    }
+
+
+    .datepicker div > label{
+        @apply hidden;
+    }
+    .datepicker div > label ~ div {
+        @apply right-0 left-[unset] top-4
+    }
+    .datepicker button[aria-label="Close"]>svg{
+        @apply max-h-[9px] -mr-2 mt-[2px]/*Close icon*/
+    }
+    /*Some weird bug that changes the appearance of the datepicker modal randomly -> probably css racing*/
+    .datepicker button, [type='button'],
+    [type='reset'],
+    [type='submit'] {
+        -webkit-appearance: button; /* 1 */
+        background-color: transparent; /* 2 */
+        background-image: none; /* 2 */
+    }
+
+
+    thead, .contentHeader {
+        border-radius: 4px;
+        padding: 12px;
+        font-size: medium;
+        font-weight: normal;
+        position: sticky;
+        @apply bg-layout-separator;
+        top: 0;
+    }
+    thead{
+        background-color: transparent;
+    }
+    td {
+        padding: 8px 8px;
+    }
+    .noPadding > td {
+        padding: 0 0;
+    }
+    tr:nth-child(even) {
+        /*@apply bg-layout-separator;*/
+    }
+
+
+    .imageFeature{
+        overflow:hidden;
+    }
+    .imageFeature:hover > img{
+        opacity: 0.6;
+        scale:1.1
+    }
+    .imageFeature > img{
+        opacity: 0.1;
+        scale:1;
+        transition: opacity 500ms ease-in-out,scale 500ms ease-in-out
+    }
+    .imageFeature .textContent{
+        transform:translateY(0%);
+        transition: all 600ms ease-in-out
+    }
+    .imageFeature:hover .textContent{
+        transform:translateY(200%);
+    }
+
+    .gallery {
+        margin: 0 auto;
+    }
+    .gallery__item img {
+        width: 100%;
+    }
+
+
+}

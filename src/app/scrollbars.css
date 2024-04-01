@@ -1,0 +1,91 @@
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #414040;
+    border-radius: 4px;
+    border: 2px solid #414040;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-grey-navy;
+}
+
+.scrollable {
+    scrollbar-color: #d4d9ec transparent; /* firefox track thumb */
+    scrollbar-width: thin; /* firefox  scrollbar width*/
+}
+
+.hideHorizontalScrollbar::-webkit-scrollbar:horizontal {
+    @apply hidden h-0 w-0;
+}
+
+.hideHorizontalScrollbar::-webkit-scrollbar-thumb:horizontal {
+    @apply hidden;
+}
+
+
+/*Hide Scrollbar*/
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hideScrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hideScrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+
+.innerTooltip::-webkit-scrollbar, .smallScrollbar::-webkit-scrollbar {
+    width: 5px;
+    height: 0;
+}
+
+.innerTooltip::-webkit-scrollbar-track, .smallScrollbar::-webkit-scrollbar-track {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.innerTooltip::-webkit-scrollbar-thumb, .smallScrollbar::-webkit-scrollbar-thumb {
+    background: #d4d9ec4d;
+    border-radius: 40px;
+    border: 0 solid white;
+}
+
+.darkScrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.darkScrollbar::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+.darkScrollbar::-webkit-scrollbar-track {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.darkScrollbar::-webkit-scrollbar-thumb {
+    @apply bg-dark-grey-hover;
+    border-radius: 40px;
+    border: 0;
+}
+
+.darkScrollbar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.darkScrollbar::-webkit-scrollbar-corner {
+    background: rgba(0, 0, 0, 0);
+}
