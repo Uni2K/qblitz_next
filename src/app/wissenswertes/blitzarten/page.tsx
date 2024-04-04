@@ -133,14 +133,14 @@ export default async function Home() {
     return <div className={"z-10 bg-background/80 bg"}>
         <div className={"flex  flex-col pb-12 flex-grow mt-40  w-[70%] mx-auto"}>
             <div className={"text-sm text-accent-blue"}>Wissenswertes</div>
-            <h2>Blitzarten</h2>
+            <h1>Blitzarten</h1>
             <div className={"mt-4"}>
                 Die verschiedensten Arten von Blitzen sind heutzutage bekannt. Nachstehend die verschiedenen
                 Erscheinungsformen.
             </div>
             <div className={"flex flex-wrap gap-20 mt-24"}>
                 <div className={"w-full mb-20"}>
-                    {data.slice(0, 1).map(value => <div className={"flex flex-row flex-grow flex-shrink gap-16"}>
+                    {data.slice(0, 1).map(value => <div key={value.title} className={"flex flex-row flex-grow flex-shrink gap-16"}>
                         <div className={"basis-1/2 bg"}>
                             {value.image && <Image alt={value.title} src={value.image} className={"w-full"}/>}
                         </div>
@@ -158,7 +158,7 @@ export default async function Home() {
                 </div>
 
                 {data.slice(1).map((value, index) =>
-                    <div className={"flex flex-col basis-[27%] max-w-[400px] flex-grow flex-shrink"}>
+                    <div key={"bl_"+index} className={"flex flex-col basis-[27%] max-w-[400px] flex-grow flex-shrink"}>
                         <div className={""}>
                             {value.image && <Image alt={value.title} src={value.image} className={"aspect-[16/12]"}/>}
                             <h3 className={"mt-4"}>{value.title}</h3>

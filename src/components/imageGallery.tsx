@@ -1,192 +1,680 @@
 'use client'
 
-import React, {useEffect, useState} from 'react';
-import 'react-image-lightbox/style.css';
-import 'lightgallery/css/lightgallery.css';
-import lgZoom from 'lightgallery/plugins/zoom';
-import LightGallery from 'lightgallery/react';
-// @ts-ignore
-import fjGallery from 'flickr-justified-gallery';
+import React, {useState} from 'react';
+import {Gallery} from "react-grid-gallery";
+import Lightbox from "react-image-lightbox";
+import "react-image-lightbox/style.css";
 
 
 let fileNames = [
-    "Alu Aufgeplatze Isolation.webp",
-    "Aluknetlegierung und Kalk (1).webp",
-    "Aluknetlegierung und Kalk (2).webp",
-    "Aluknetlegierung und Kalk (3).webp",
-    "Aluknetlegierung und Kalk (4).webp",
-    "Anschluss Stahltreppe fehlt.webp",
-    "Biogasanlage mit überspannter Fangeinrichtung.webp",
-    "Biogasanlagen LPS (1).webp",
-    "Biogasanlagen LPS (2).webp",
-    "Biogasanlagen LPS (3).webp",
-    "Blechanschluss unzureichend.webp",
-    "Blitze über Quaschwitz (1).webp",
-    "Blitze über Quaschwitz (2).webp",
-    "Blitzeinschlag Baustelle Holzkonstruktion (1).webp",
-    "Blitzeinschlag Baustelle Holzkonstruktion (2).webp",
-    "Blitzeinschlag Dreba Feldkapelle (1).webp",
-    "Blitzeinschlag Dreba Feldkapelle (2).webp",
-    "Blitzeinschlag Fichte (1).webp",
-    "Blitzeinschlag Fichte (2).webp",
-    "Blitzeinschläge Kirchturmspitze.webp",
-    "Blitzschaden Absprengung Dachkasten.webp",
-    "Blitzschaden Austrittstelle Schlafraum.webp",
-    "Blitzschaden Einschlag Ortblech.webp",
-    "Blitzschutz.webp",
-    "Defekte Erdung Korrosion.webp",
-    "Defekte Halter.webp",
-    "Einblicke unterm Pflaster (1).webp",
-    "Einblicke unterm Pflaster (2).webp",
-    "Erdanschluss Fehlt.webp",
-    "Erdeinführung Kupfer (1).webp",
-    "Erdeinführung Kupfer (2).webp",
-    "Erderfahne.webp",
-    "Erdstange Alu-Band (1).webp",
-    "Erdstange Alu-Band (2).webp",
-    "Erdung Fahne mangelhaft.webp",
-    "Erdung Vorhangfassade.webp",
-    "Fangspitze Alu 8 MM 1,2 M.webp",
-    "Fangstangen Einsatzbeispiel (1).webp",
-    "Fangstangen Einsatzbeispiel (2).webp",
-    "Fangstangen Einsatzbeispiel (3).webp",
-    "Fangstangen statt Masche.webp",
-    "Fassadenanschluss fehlt.webp",
-    "Fehlender PE Anschluss (1).webp",
-    "Fehlender PE Anschluss (2).webp",
-    "Frankreich Eifelturm Blitzschutz (1).webp",
-    "Frankreich Eifelturm Blitzschutz (2).webp",
-    "Frankreich Paris Ableitung Kupferband mit Trennstelle.webp",
-    "HVI in der Leitung.webp",
-    "Isolation um Aludraht defekt.webp",
-    "Isolierte Fangeinrichtung.webp",
-    "Isoliertes Regenfallrohr.webp",
-    "Kabelnaeherung (2).webp",
-    "Kabelnaeherung (3).webp",
-    "Kabelnaeherung (4).webp",
-    "Kabelnaeherung (5).webp",
-    "Kabelnäherung parallele Leitungen.webp",
-    "Kabelverlegung unzulässig (1).webp",
-    "Kabelverlegung unzulässig (2).webp",
-    "Klassische Kabelnaeherung.webp",
-    "Knau Einschlag Eiche.webp",
-    "Kroatien Blitzschutz.webp",
-    "Lose Fangeinrichtung.webp",
-    "Lose Leitung auf Foliendach.webp",
-    "Lose Leitung auf Schieferdach.webp",
-    "Lose Schelle und Kabelnäherung.webp",
-    "Mangelhafte Erdung.webp",
-    "Montagefehler elektrisches Fenster.webp",
-    "Neustadt Orla Rep. Ableitung (1).webp",
-    "Neustadt Orla Rep. Ableitung (2).webp",
-    "Neustadt Orla Rep. Ableitung (3).webp",
-    "Neustadt Orla Rep. Ableitung (4).webp",
-    "Neustadt Orla Rep. Ableitung (5).webp",
-    "Neustadt Orla Rep. Ableitung (6).webp",
-    "Nord-Zypern Blitzschutz (1).webp",
-    "Nord-Zypern Blitzschutz (2).webp",
-    "Nord-Zypern Blitzschutz (3).webp",
-    "Nord-Zypern Blitzschutz (4).webp",
-    "Näherung elektrische  Bauteile.webp",
-    "Näherung Klima.webp",
-    "Näherung Lüfter (1).webp",
-    "Näherung Lüfter (2).webp",
-    "Ostsee Reetdächer Blitzschutz (1).webp",
-    "Ostsee Reetdächer Blitzschutz (2).webp",
-    "Ostsee Rügen Reetdächer Blitzschutz (1).webp",
-    "Ostsee Rügen Reetdächer Blitzschutz (2).webp",
-    "Ostsee Rügen Reetdächer HVI Blitzschutz (1).webp",
-    "Ostsee Rügen Reetdächer HVI Blitzschutz (2).webp",
-    "PA fehlt.webp",
-    "PE nach Rohrwechsel nicht angeschlossen.webp",
-    "Polnischer Blitzschutz.webp",
-    "Portugal Blitzschutz.webp",
-    "Portugal Neubau Fangstangen.webp",
-    "Prüfen in schwierigen baulichen Gegebenheiten (1).webp",
-    "Prüfen in schwierigen baulichen Gegebenheiten (2).webp",
-    "Pößneck HVI Trafo.webp",
-    "Rost Erdungleitung.webp",
-    "Schottland Burgruine Urquhart Castle (1).webp",
-    "Schottland Burgruine Urquhart Castle (2).webp",
-    "Schottland Edinburgh (1).webp",
-    "Schottland Edinburgh (2).webp",
-    "Schottland Edinburgh (3).webp",
-    "Sirene Isolation.webp",
-    "Spezialbauwerke wie Schornsteine.webp",
-    "Süd-Zypern Blitzschutz (1).webp",
-    "Süd-Zypern Blitzschutz (2).webp",
-    "Süd-Zypern Blitzschutz (3).webp",
-    "Trafobrand.webp",
-    "Unterputz Kupfer (1).webp",
-    "Unterputz Kupfer (2).webp",
-    "Unzulässige Fangspitzen.webp",
-    "Unzulässige Kabelverlegung.webp",
-    "Unzulässige Verlängerung Fangstange.webp",
-    "Unzulässiger Anschluss (1).webp",
-    "Unzulässiger Anschluss (2).webp",
-    "Unzulässiger Anschluss (3).webp",
-    "USA Blitzschutz.webp",
-    "USA Bryce Canyon Nationalpark (1).webp",
-    "USA Bryce Canyon Nationalpark (2).webp",
-    "USA Grand Canyon Nationalpark (1).webp",
-    "USA Grand Canyon Nationalpark (2).webp",
-    "Wolke-Wolke Blitz (1).webp",
-    "Wolke-Wolke Blitz (2).webp",
-    "Zerstörte Halterungen nach Dachreparatur.webp",
-    "Zerstörte Leitung nach Dachreparatur.webp"
+    {
+        "src": "tn_Alu Aufgeplatze Isolation.webp",
+        "width": 225,
+        "height": 300
+    },
+    {
+        "src": "tn_Aluknetlegierung und Kalk (1).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Aluknetlegierung und Kalk (2).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Aluknetlegierung und Kalk (3).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Aluknetlegierung und Kalk (4).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Anschluss Stahltreppe fehlt.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Biogasanlage mit überspannter Fangeinrichtung.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Biogasanlagen LPS (1).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Biogasanlagen LPS (2).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Biogasanlagen LPS (3).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Blechanschluss unzureichend.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Blitze über Quaschwitz (1).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Blitze über Quaschwitz (2).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Blitzeinschlag Baustelle Holzkonstruktion (1).webp",
+        "width": 225,
+        "height": 300
+    },
+    {
+        "src": "tn_Blitzeinschlag Baustelle Holzkonstruktion (2).webp",
+        "width": 225,
+        "height": 300
+    },
+    {
+        "src": "tn_Blitzeinschlag Dreba Feldkapelle (1).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Blitzeinschlag Dreba Feldkapelle (2).webp",
+        "width": 225,
+        "height": 300
+    },
+    {
+        "src": "tn_Blitzeinschlag Fichte (1).webp",
+        "width": 225,
+        "height": 300
+    },
+    {
+        "src": "tn_Blitzeinschlag Fichte (2).webp",
+        "width": 225,
+        "height": 300
+    },
+    {
+        "src": "tn_Blitzeinschläge Kirchturmspitze.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Blitzschaden Absprengung Dachkasten.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Blitzschaden Austrittstelle Schlafraum.webp",
+        "width": 225,
+        "height": 300
+    },
+    {
+        "src": "tn_Blitzschaden Einschlag Ortblech.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Blitzschutz.webp",
+        "width": 225,
+        "height": 300
+    },
+    {
+        "src": "tn_Defekte Erdung Korrosion.webp",
+        "width": 300,
+        "height": 238
+    },
+    {
+        "src": "tn_Defekte Halter.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Einblicke unterm Pflaster (1).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Einblicke unterm Pflaster (2).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Erdanschluss Fehlt.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Erdeinführung Kupfer (1).webp",
+        "width": 225,
+        "height": 300
+    },
+    {
+        "src": "tn_Erdeinführung Kupfer (2).webp",
+        "width": 189,
+        "height": 300
+    },
+    {
+        "src": "tn_Erderfahne.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Erdstange Alu-Band (1).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Erdstange Alu-Band (2).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Erdung Fahne mangelhaft.webp",
+        "width": 225,
+        "height": 300
+    },
+    {
+        "src": "tn_Erdung Vorhangfassade.webp",
+        "width": 300,
+        "height": 169
+    },
+    {
+        "src": "tn_Fangspitze Alu 8 MM 1,2 M.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Fangstangen Einsatzbeispiel (1).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Fangstangen Einsatzbeispiel (2).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Fangstangen Einsatzbeispiel (3).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Fangstangen statt Masche.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Fassadenanschluss fehlt.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Fehlender PE Anschluss (1).webp",
+        "width": 300,
+        "height": 169
+    },
+    {
+        "src": "tn_Fehlender PE Anschluss (2).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Frankreich Eifelturm Blitzschutz (1).webp",
+        "width": 300,
+        "height": 200
+    },
+    {
+        "src": "tn_Frankreich Eifelturm Blitzschutz (2).webp",
+        "width": 300,
+        "height": 200
+    },
+    {
+        "src": "tn_Frankreich Paris Ableitung Kupferband mit Trennstelle.webp",
+        "width": 200,
+        "height": 300
+    },
+    {
+        "src": "tn_HVI in der Leitung.webp",
+        "width": 170,
+        "height": 300
+    },
+    {
+        "src": "tn_Isolation um Aludraht defekt.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Isolierte Fangeinrichtung.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Isoliertes Regenfallrohr.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Kabelnaeherung (2).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Kabelnaeherung (3).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Kabelnaeherung (4).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Kabelnaeherung (5).webp",
+        "width": 225,
+        "height": 300
+    },
+    {
+        "src": "tn_Kabelnäherung parallele Leitungen.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Kabelverlegung unzulässig (1).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Kabelverlegung unzulässig (2).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Klassische Kabelnaeherung.webp",
+        "width": 225,
+        "height": 300
+    },
+    {
+        "src": "tn_Knau Einschlag Eiche.webp",
+        "width": 225,
+        "height": 300
+    },
+    {
+        "src": "tn_Kroatien Blitzschutz.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Lose Fangeinrichtung.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Lose Leitung auf Foliendach.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Lose Leitung auf Schieferdach.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Lose Schelle und Kabelnäherung.webp",
+        "width": 225,
+        "height": 300
+    },
+    {
+        "src": "tn_Mangelhafte Erdung.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Montagefehler elektrisches Fenster.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Neustadt Orla Rep. Ableitung (1).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Neustadt Orla Rep. Ableitung (2).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Neustadt Orla Rep. Ableitung (3).webp",
+        "width": 225,
+        "height": 300
+    },
+    {
+        "src": "tn_Neustadt Orla Rep. Ableitung (4).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Neustadt Orla Rep. Ableitung (5).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Neustadt Orla Rep. Ableitung (6).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Nord-Zypern Blitzschutz (1).webp",
+        "width": 169,
+        "height": 300
+    },
+    {
+        "src": "tn_Nord-Zypern Blitzschutz (2).webp",
+        "width": 169,
+        "height": 300
+    },
+    {
+        "src": "tn_Nord-Zypern Blitzschutz (3).webp",
+        "width": 300,
+        "height": 169
+    },
+    {
+        "src": "tn_Nord-Zypern Blitzschutz (4).webp",
+        "width": 169,
+        "height": 300
+    },
+    {
+        "src": "tn_Näherung elektrische  Bauteile.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Näherung Klima.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Näherung Lüfter (1).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Näherung Lüfter (2).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Ostsee Reetdächer Blitzschutz (1).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Ostsee Reetdächer Blitzschutz (2).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Ostsee Rügen Reetdächer Blitzschutz (1).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Ostsee Rügen Reetdächer Blitzschutz (2).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Ostsee Rügen Reetdächer HVI Blitzschutz (1).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Ostsee Rügen Reetdächer HVI Blitzschutz (2).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_PA fehlt.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_PE nach Rohrwechsel nicht angeschlossen.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Polnischer Blitzschutz.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Portugal Blitzschutz.webp",
+        "width": 225,
+        "height": 300
+    },
+    {
+        "src": "tn_Portugal Neubau Fangstangen.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Prüfen in schwierigen baulichen Gegebenheiten (1).webp",
+        "width": 225,
+        "height": 300
+    },
+    {
+        "src": "tn_Prüfen in schwierigen baulichen Gegebenheiten (2).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Pößneck HVI Trafo.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Rost Erdungleitung.webp",
+        "width": 225,
+        "height": 300
+    },
+    {
+        "src": "tn_Schottland Burgruine Urquhart Castle (1).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Schottland Burgruine Urquhart Castle (2).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Schottland Edinburgh (1).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Schottland Edinburgh (2).webp",
+        "width": 225,
+        "height": 300
+    },
+    {
+        "src": "tn_Schottland Edinburgh (3).webp",
+        "width": 225,
+        "height": 300
+    },
+    {
+        "src": "tn_Sirene Isolation.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Spezialbauwerke wie Schornsteine.webp",
+        "width": 225,
+        "height": 300
+    },
+    {
+        "src": "tn_Süd-Zypern Blitzschutz (1).webp",
+        "width": 169,
+        "height": 300
+    },
+    {
+        "src": "tn_Süd-Zypern Blitzschutz (2).webp",
+        "width": 169,
+        "height": 300
+    },
+    {
+        "src": "tn_Süd-Zypern Blitzschutz (3).webp",
+        "width": 169,
+        "height": 300
+    },
+    {
+        "src": "tn_Trafobrand.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Unterputz Kupfer (1).webp",
+        "width": 225,
+        "height": 300
+    },
+    {
+        "src": "tn_Unterputz Kupfer (2).webp",
+        "width": 225,
+        "height": 300
+    },
+    {
+        "src": "tn_Unzulässige Fangspitzen.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Unzulässige Kabelverlegung.webp",
+        "width": 300,
+        "height": 169
+    },
+    {
+        "src": "tn_Unzulässige Verlängerung Fangstange.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Unzulässiger Anschluss (1).webp",
+        "width": 225,
+        "height": 300
+    },
+    {
+        "src": "tn_Unzulässiger Anschluss (2).webp",
+        "width": 225,
+        "height": 300
+    },
+    {
+        "src": "tn_Unzulässiger Anschluss (3).webp",
+        "width": 225,
+        "height": 300
+    },
+    {
+        "src": "tn_USA Blitzschutz.webp",
+        "width": 300,
+        "height": 169
+    },
+    {
+        "src": "tn_USA Bryce Canyon Nationalpark (1).webp",
+        "width": 225,
+        "height": 300
+    },
+    {
+        "src": "tn_USA Bryce Canyon Nationalpark (2).webp",
+        "width": 225,
+        "height": 300
+    },
+    {
+        "src": "tn_USA Grand Canyon Nationalpark (1).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_USA Grand Canyon Nationalpark (2).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Wolke-Wolke Blitz (1).webp",
+        "width": 225,
+        "height": 300
+    },
+    {
+        "src": "tn_Wolke-Wolke Blitz (2).webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Zerstörte Halterungen nach Dachreparatur.webp",
+        "width": 300,
+        "height": 225
+    },
+    {
+        "src": "tn_Zerstörte Leitung nach Dachreparatur.webp",
+        "width": 300,
+        "height": 225
+    }
+
 ]
 
 const ImageGallery: React.FC = () => {
-    const [isLoading, setLoading] = useState(true)
+    const [index, setIndex] = useState(-1);
 
-    useEffect(() => {
-        fjGallery(document.querySelectorAll('.gallery'), {
-            itemSelector: '.gallery__item',
-            rowHeight: 280,
-            lastRow: 'start',
-            gutter: 4,
-            rowHeightTolerance: 0.1,
-            calculateItemsHeight: false,
-        });
-        setLoading(false)
-    }, []);
+    const currentImage = fileNames[index];
+    const nextIndex = (index + 1) % fileNames.length;
+    const prevIndex = (index + fileNames.length - 1) % fileNames.length;
 
+    const handleClick = (index: number, item: any) => setIndex(index);
+    const handleClose = () => setIndex(-1);
+    const handleMovePrev = () => setIndex(prevIndex);
+    const handleMoveNext = () => setIndex(nextIndex);
 
     return (
         <div>
-            <LightGallery
-                plugins={[lgZoom]}
-                mode="lg-fade"
-                pager={false}
-                thumbnail={true}
-                galleryId={'images'}
-                download={false}
-                autoplayFirstVideo={false}
-                elementClassNames={'gallery'}
-                mobileSettings={{
-                    controls: false,
-                    showCloseIcon: false,
-                    download: false,
-                    rotate: false,
-                }}
-            >
-                {fileNames.map((value, index) => {
-                    return <a
-                        key={value}
-                        className="gallery__item cursor-pointer"
-                        data-src={"/gallery/" + fileNames[index]}
-                        data-sub-html={value.replace(".webp", "")}
-                    >
-                        <img
-                            alt={value}
-                            className="img-responsive"
-                            src={"/gallery/thumbnails/tn_" + value}
-                        />
-                    </a>
+            <Gallery
 
-                })}
-
-            </LightGallery>
+                images={fileNames}
+                thumbnailImageComponent={props => (
+                    // @ts-ignore
+                    <img
+                        {...props.imageProps}
+                        width={props.item.width*2}
+                        height={props.item.height*2}
+                        className="img-responsive"
+                        src={"/gallery/thumbnails/" + props.item.src}
+                    />)
+                }
+                onClick={handleClick}
+                enableImageSelection={false}
+            />
+            {!!currentImage && (
+                <Lightbox
+                    clickOutsideToClose={true}
+                    mainSrc={"/gallery/" + fileNames[index].src.replace("tn_","")}
+                    imageTitle={fileNames[index].src.replace("tn_","")}
+                     mainSrcThumbnail={fileNames[index].src}
+                     nextSrc={"/gallery/" + fileNames[nextIndex].src.replace("tn_","")}
+                     nextSrcThumbnail={fileNames[nextIndex].src}
+                     prevSrc={"/gallery/" + fileNames[prevIndex].src.replace("tn_","")}
+                     prevSrcThumbnail={fileNames[prevIndex].src}
+                    onCloseRequest={handleClose}
+                    onMovePrevRequest={handleMovePrev}
+                    onMoveNextRequest={handleMoveNext}
+                />
+            )}
         </div>
     );
 };

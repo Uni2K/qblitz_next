@@ -80,8 +80,8 @@ module.exports = {
         extend: {
             fontSize: {
                 /*Adjusted from Figma -> Base Text Size 15 ~ 1rem; default extra for smaller adjustments*/
-                heading1: '2.75rem',
-                heading2: '2.125rem',
+                heading1: '1.75rem',
+                heading2: '1.4rem',
                 heading3: '1.5rem',
                 heading4: '1.133rem',
                 subtitle: '1.225rem',
