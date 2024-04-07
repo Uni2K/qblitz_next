@@ -2,15 +2,8 @@
 
 import Link from "next/link";
 import {usePathname} from "next/navigation";
-import React, {ReactNode} from "react";
-
-import IconOverview from "@/components/icons/iconOverview";
-import IconActions from "@/components/icons/iconActions";
-import IconSelling from "@/components/icons/iconSelling";
+import React from "react";
 import Logo from "@/components/logo";
-import IconDrawing from "@/components/icons/iconDrawing";
-import IconBackend from "@/components/icons/iconBackend";
-import IconRebuild from "@/components/icons/iconRebuild";
 
 
 type NavbarEntry = {
@@ -23,8 +16,6 @@ type NavbarEntry = {
 
 export const DashboardSidebar = () => {
     const pathname = usePathname()
-
-
     let selectedItem = 0
 
 
@@ -41,7 +32,12 @@ export const DashboardSidebar = () => {
         {
             label: "Wissenswertes",
             link: "/wissenswertes",
-            subEntries: [{label: "Blitzarten", link: "/arten"}]
+            subEntries: [
+                {label: "Blitzarten", link: "/wissenswertes/blitzarten"},
+                {label: "Blitz & Donner", link: "/wissenswertes/blitz-donner"},
+                {label: "Historisches", link: "/wissenswertes/historisches"},
+
+            ]
         },
         {
             label: "Bildbeispiele",
@@ -69,7 +65,7 @@ export const DashboardSidebar = () => {
     return <nav
         className={`w-[100vw-8px] mt-16 flex-col z-10  items-center gap-3  sticky flex flex-grow transition-all `}>
         <Logo icon={false}/>
-        <div className={"flex mt-2 gap-4 "}>
+        <div className={"flex mt-2 gap-4 overflow-hidden "}>
             {entries.map((value) => getEntry(value))}
         </div>
     </nav>
@@ -78,13 +74,18 @@ export const DashboardSidebar = () => {
 
 function getEntry(entry: NavbarEntry) {
 
-    return <Link href={entry.link} key={entry.label}
-                 className={`flex cursor-pointer rounded hover:text-primary-error justify-center md:justify-normal items-center md:px-4   ${entry.selected ? "text-primary-error" : ""}`}>
-        <div
-            className={` flex gap-3 py-1 items-center text-[14px] font-bold`}><span
-            className={" hidden md:block"}>{entry.label}</span>
+    return <div className={`${entry.subEntries && 'dropdown'}`}>
+        <Link href={entry.link} key={entry.label}
+              className={`flex cursor-pointer rounded hover:text-primary-error justify-center md:justify-normal items-center md:px-4   ${entry.selected ? "text-primary-error" : ""}`}>
+            <div
+                className={` flex gap-3 py-1 items-center text-[14px] font-bold`}><span
+                className={" hidden md:block"}>{entry.label}</span>
+            </div>
+        </Link>
+        <div className={"dropdown-content"}>
+            {entry.subEntries?.map((value) => getEntry(value))}
         </div>
-    </Link>
+    </div>
 }
 
 

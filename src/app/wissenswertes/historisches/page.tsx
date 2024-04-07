@@ -1,6 +1,6 @@
 'use client'
+
 import React from "react";
-// @ts-ignore
 import {VerticalTimeline, VerticalTimelineElement} from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
 
@@ -24,7 +24,7 @@ export default function Home() {
                 Weiter heißt es in der Bauvorschrift:
             </div>
 
-            <div className={"p-8"}>
+            <div className={"py-14"}>
                 <VerticalTimeline layout={"1-column-left"} lineColor={'#0293E4'} className={'timeLiner'}>
                     <VerticalTimelineElement
                         visible={true}
@@ -132,6 +132,16 @@ export default function Home() {
                     </VerticalTimelineElement>
 
                 </VerticalTimeline></div>
+            <div className={"text-faded-navy"}>
+                <b>*Quellen</b>:
+                <ul className={"list-outside"}>
+                    <li>Blitzschutzanlagen: W.Trommler und E. A. Hampe, Hüthig Verlag 1997;</li>
+                    <li>Die ältesten Blitzableiter. Archiv für Post und Telegraphie (1893) Nr. 21, Seite 779 – 780;</li>
+                    <li>Blitzableiteranlagen an dem altjüdischen Tempel in Jerusalem. Archiv für Post und Telegraphie
+                        (1898) Nr.9, Seite 295–296
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 }

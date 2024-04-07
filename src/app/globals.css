@@ -213,11 +213,13 @@
     }
 
     .timeLiner::before {
-        border-right: 2px solid #0293E4 !important;
-        /*stroke-dasharray: 23;*/
-        /*stroke-linecap: round;*/
-        width: 0 !important;
-        background: none !important;
+        width: 2px !important;
+        background-color: transparent !important;
+        background-image: radial-gradient(#0293E4 50%, transparent 51%), linear-gradient(transparent 100%, transparent 100%) !important;
+        background-position: center !important;
+        background-size: 7px 30px !important;
+        background-repeat: repeat-y !important;
+        margin-left: 0.5px;
 
     }
 
@@ -235,6 +237,24 @@
         scale: 0.25;
         border: none;
         box-shadow: 0 0 0 8px #0293E4, inset 0 0 0 rgba(0, 0, 0, .0), 0 6px 0 6px rgba(0, 0, 0, 0) !important;
+    }
+
+
+
+    /* Dropdown content (hidden by default) */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        min-width: 160px;
+        z-index: 200;
+    }
+
+
+
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {
+        display: block;
     }
 
 }

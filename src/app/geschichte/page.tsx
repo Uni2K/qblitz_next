@@ -11,7 +11,7 @@ export default async function Home() {
     return <div className={"z-10 bg-background/80 bg"}>
         <div className={"flex  flex-col pb-12 flex-grow mt-40  w-[70%] mx-auto"}>
             <div className={"text-sm text-accent-blue"}>Firmenhistorie</div>
-            <h2>Sachverstand mit über 30 Jahren Erfahrung</h2>
+            <h1>Sachverstand mit über 30 Jahren Erfahrung</h1>
             <div className={"mt-4"}>
                 Die Firma blickt auf eine langjährige Erfahrung im Blitzschutzbau zurück.<br/>
                 Bereits seit den 1990er Jahren prüfen und errichten wir hauptberuflich Blitzschutzsystemen für Privat-
