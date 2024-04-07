@@ -651,8 +651,8 @@ const ImageGallery: React.FC = () => {
                     // @ts-ignore
                     <img
                         {...props.imageProps}
-                        width={props.item.width*2}
-                        height={props.item.height*2}
+                        width={props.item.width * 2}
+                        height={props.item.height * 2}
                         className="img-responsive"
                         src={"/gallery/thumbnails/" + props.item.src}
                     />)
@@ -663,13 +663,13 @@ const ImageGallery: React.FC = () => {
             {!!currentImage && (
                 <Lightbox
                     clickOutsideToClose={true}
-                    mainSrc={"/gallery/" + fileNames[index].src.replace("tn_","")}
-                    imageTitle={fileNames[index].src.replace("tn_","")}
-                     mainSrcThumbnail={fileNames[index].src}
-                     nextSrc={"/gallery/" + fileNames[nextIndex].src.replace("tn_","")}
-                     nextSrcThumbnail={fileNames[nextIndex].src}
-                     prevSrc={"/gallery/" + fileNames[prevIndex].src.replace("tn_","")}
-                     prevSrcThumbnail={fileNames[prevIndex].src}
+                    mainSrc={"/gallery/" + fileNames[index].src.replace("tn_", "")}
+                    imageTitle={fileNames[index].src.replace("tn_", "").replace(".webp","")}
+                    mainSrcThumbnail={fileNames[index].src}
+                    nextSrc={"/gallery/" + fileNames[nextIndex].src.replace("tn_", "")}
+                    nextSrcThumbnail={fileNames[nextIndex].src}
+                    prevSrc={"/gallery/" + fileNames[prevIndex].src.replace("tn_", "")}
+                    prevSrcThumbnail={fileNames[prevIndex].src}
                     onCloseRequest={handleClose}
                     onMovePrevRequest={handleMovePrev}
                     onMoveNextRequest={handleMoveNext}

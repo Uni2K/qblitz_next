@@ -15,7 +15,7 @@ export default async function Home() {
             <div className={"flex flex-row"}>
                 <div className={"basis-[47%] p-8 pl-0"}>
                     <div className={"text-sm text-accent-blue"}>Kontakt</div>
-                    <h2>Wir helfen Ihnen gerne</h2>
+                    <h1>Wir helfen Ihnen gerne</h1>
                     <div className={"mb-4 mt-8"}>Egal ob allgemeine Frage, konkretes Anliegen<br/>
                         oder Angebotsanforderung. Wir helfen Ihnen gerne persönlich weiter.
                     </div>
@@ -57,7 +57,7 @@ export default async function Home() {
             </div>
             <div className={"z-10 my-32 bg-layout-separator h-[1px] w-full"}></div>
             <div>
-                <h2 className={"mb-8"}>Impressum</h2>
+                <h2 className={"mb-8 mt-0"}>Impressum</h2>
 
                 <p>Prüfdienst für Blitzschutz</p>
                 <p>Bernd Zimmermann</p>

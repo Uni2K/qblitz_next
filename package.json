@@ -16,6 +16,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-grid-gallery": "^1.0.1-alpha.0",
+    "react-vertical-timeline-component": "^3.6.0",
     "react-image-lightbox": "^5.1.4",
     "swr": "latest",
     "tailwindcss": "^3.3.5",
@@ -27,6 +28,8 @@
     "@types/react-dom": "18.0.11",
     "autoprefixer": "10.4.14",
     "eslint": "8.37.0",
-    "eslint-config-next": "14.0.1"
+    "eslint-config-next": "14.0.1",
+    "@types/react-vertical-timeline-component": "^3.3.6"
+
   }
 }

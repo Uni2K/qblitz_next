@@ -122,7 +122,9 @@ module.exports = {
             boxShadow: {
                 floating: '0 10px 70px -12px rgb(0 0 0 / 0.25)',
                 dropdown: '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
-                blueButton: '4px 4px 14px 3px rgba(30, 123, 243, 0.24)'
+                blueButton: '4px 4px 14px 3px rgba(30, 123, 243, 0.24)',
+                timeLineBullet: '0 -1px 20px 1px rgba(2, 147, 228, 0.77)',
+
 
             },
             fontFamily: {

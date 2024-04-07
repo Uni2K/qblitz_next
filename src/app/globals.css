@@ -82,12 +82,15 @@
     .neutral {
         @apply fill-primary-neutral
     }
+
     .neutralEmphasized {
         @apply fill-primary-neutral-emphasized bg-primary-neutral-emphasized/20
     }
+
     .negative {
         @apply fill-primary-error
     }
+
     .negativeEmphasized {
         @apply fill-primary-error bg-primary-error/20
     }
@@ -127,15 +130,19 @@
     }
 
 
-    .datepicker div > label{
+    .datepicker div > label {
         @apply hidden;
     }
+
     .datepicker div > label ~ div {
         @apply right-0 left-[unset] top-4
     }
-    .datepicker button[aria-label="Close"]>svg{
-        @apply max-h-[9px] -mr-2 mt-[2px]/*Close icon*/
+
+    .datepicker button[aria-label="Close"] > svg {
+        @apply max-h-[9px] -mr-2 mt-[2px]
+        /*Close icon*/
     }
+
     /*Some weird bug that changes the appearance of the datepicker modal randomly -> probably css racing*/
     .datepicker button, [type='button'],
     [type='reset'],
@@ -155,46 +162,79 @@
         @apply bg-layout-separator;
         top: 0;
     }
-    thead{
+
+    thead {
         background-color: transparent;
     }
+
     td {
         padding: 8px 8px;
     }
+
     .noPadding > td {
         padding: 0 0;
     }
+
     tr:nth-child(even) {
         /*@apply bg-layout-separator;*/
     }
 
 
-    .imageFeature{
-        overflow:hidden;
+    .imageFeature {
+        overflow: hidden;
     }
-    .imageFeature:hover > img{
+
+    .imageFeature:hover > img {
         opacity: 0.6;
-        scale:1.1
+        scale: 1.1
     }
-    .imageFeature > img{
+
+    .imageFeature > img {
         opacity: 0.1;
-        scale:1;
-        transition: opacity 500ms ease-in-out,scale 500ms ease-in-out
+        scale: 1;
+        transition: opacity 500ms ease-in-out, scale 500ms ease-in-out
     }
-    .imageFeature .textContent{
-        transform:translateY(0%);
+
+    .imageFeature .textContent {
+        transform: translateY(0%);
         transition: all 600ms ease-in-out
     }
-    .imageFeature:hover .textContent{
-        transform:translateY(200%);
+
+    .imageFeature:hover .textContent {
+        transform: translateY(200%);
     }
 
     .gallery {
         margin: 0 auto;
     }
+
     .gallery__item img {
         width: 100%;
     }
 
+    .timeLiner::before {
+        border-right: 2px solid #0293E4 !important;
+        /*stroke-dasharray: 23;*/
+        /*stroke-linecap: round;*/
+        width: 0 !important;
+        background: none !important;
+
+    }
+
+    .timeLinerHeader {
+        border: 2px solid #0293E4;
+        @apply px-4 py-1.5;
+    }
+
+    .timeLinerDescription {
+        @apply text-faded-navy mt-4;
+    }
+
+    .timeLinerIcon {
+        background: rgb(0,0,0);
+        scale: 0.25;
+        border: none;
+        box-shadow: 0 0 0 8px #0293E4, inset 0 0 0 rgba(0, 0, 0, .0), 0 6px 0 6px rgba(0, 0, 0, 0) !important;
+    }
 
 }
