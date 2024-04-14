@@ -2,8 +2,8 @@
 
 import React, {useState} from 'react';
 import {Gallery} from "react-grid-gallery";
-import Lightbox from "react-image-lightbox";
-import "react-image-lightbox/style.css";
+import "react-18-image-lightbox/style.css";
+import Lightbox from "react-18-image-lightbox";
 
 
 let fileNames = [

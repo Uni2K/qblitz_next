@@ -1,7 +1,7 @@
+@import 'scrollbars.css';
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-@import 'scrollbars.css';
 
 @layer base {
     html,

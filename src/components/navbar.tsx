@@ -36,6 +36,8 @@ export const DashboardSidebar = () => {
                 {label: "Blitzarten", link: "/wissenswertes/blitzarten"},
                 {label: "Blitz & Donner", link: "/wissenswertes/blitz-donner"},
                 {label: "Historisches", link: "/wissenswertes/historisches"},
+                {label: "Überspannungsschutz", link: "/wissenswertes/ueberspannungsschutz"},
+
 
             ]
         },
@@ -74,7 +76,7 @@ export const DashboardSidebar = () => {
 
 function getEntry(entry: NavbarEntry) {
 
-    return <div className={`${entry.subEntries && 'dropdown'}`}>
+    return <div className={`${entry.subEntries && 'dropdown'}`} key={entry.label}>
         <Link href={entry.link} key={entry.label}
               className={`flex cursor-pointer rounded hover:text-primary-error justify-center md:justify-normal items-center md:px-4   ${entry.selected ? "text-primary-error" : ""}`}>
             <div
