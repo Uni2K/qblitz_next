@@ -240,21 +240,29 @@
     }
 
 
-
-    /* Dropdown content (hidden by default) */
     .dropdown-content {
-        display: none;
+        @apply bg-background;
+        display: block;
         position: absolute;
         min-width: 160px;
         z-index: 200;
+        opacity: 0;
+        transform: translateY(-10px);
+        visibility: hidden;
+        transition: opacity 0.2s, transform 0.2s, visibility 0.2s 0.2s; /* Füge eine Verzögerung hinzu, um visibility erst nach der Animation zu ändern */
     }
 
-
-
-
-    /* Show the dropdown menu on hover */
     .dropdown:hover .dropdown-content {
-        display: block;
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+        transition-delay: 0s; /* Entferne die Verzögerung beim Einblenden */
     }
+
+    /*.dropdown {*/
+    /*    position: relative;*/
+    /*    overflow: visible; !* Stellt sicher, dass das Dropdown sichtbar ist *!*/
+    /*}*/
+
 
 }
