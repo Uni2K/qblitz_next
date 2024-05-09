@@ -8,7 +8,7 @@ import 'react-vertical-timeline-component/style.min.css';
 export default function Home() {
 
     return <div className={"z-10 bg-background/80 bg"}>
-        <div className={"flex  flex-col pb-12 flex-grow mt-40 w-[70%] mx-auto max-w-[1000px]"}>
+        <div className={"flex  flex-col pb-12 flex-grow mt-40 w-[70%] mx-auto max-w-content"}>
             <div className={"text-sm text-accent-blue"}>Wissenswertes</div>
             <h1>Historisches</h1>
             <div className={"mt-4"}>
@@ -25,10 +25,10 @@ export default function Home() {
             </div>
 
             <div className={"py-14"}>
-                <VerticalTimeline layout={"1-column-left"} lineColor={'#0293E4'} className={'timeLiner'}>
+                <VerticalTimeline layout={"1-column-left"} lineColor={'#0293E4'} className={'timeLiner right'}>
                     <VerticalTimelineElement
                         visible={true}
-                        position={''}
+                        position={'left'}
                         contentArrowStyle={{borderRightWidth: '4px', borderWidth: '4px', borderRightColor: '#0293E4'}}
                         contentStyle={{background: 'none', padding: '0', boxShadow: 'none'}}
                         date="925–587 v.Chr."

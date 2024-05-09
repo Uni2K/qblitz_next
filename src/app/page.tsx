@@ -1,5 +1,5 @@
 import background from '../../public/background.png'
-import drawing1 from '../../public/Zeichenfläche 1.png'
+import drawing1 from '../../public/technical_drawing.png'
 import autocad from '../../public/autocad.png'
 import image1 from '../../public/start_0.webp'
 import image2 from '../../public/start_1.webp'

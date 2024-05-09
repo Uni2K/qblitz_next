@@ -1,26 +1,33 @@
 import donner from '../../../../public/wissenswertes/donner.jpeg'
-
 import React from "react";
 import Image from "next/image";
 import LinkButton from "@/components/linkButton";
 import IconLightning from "@/components/icons/iconLightning";
+import {Metadata} from "next";
+import SourceTag from '@/components/sourceTag';
 
+export const metadata: Metadata = {
+    title: 'Blitz & Donner',
+    description: 'Informationen zu Gewittern, Blitzen und Donnern',
+}
 
 export default async function Home() {
 
     return <div className={"z-10 bg-background/80 bg"}>
-        <div className={"flex  flex-col pb-12 flex-grow mt-40 w-[70%] mx-auto max-w-[1000px]"}>
+        <div className={"flex  flex-col pb-12 flex-grow mt-40 w-[70%] mx-auto max-w-content"}>
             <div className={"text-sm text-accent-blue"}>Wissenswertes</div>
             <h1>Blitz & Donner</h1>
             <div className={"mt-4"}>
-                Im Inneren einer Gewitter- bzw. Cumulonimbuswolke finden sich sowohl Eisteilchen als auch Wassertropfen.
+                Im Inneren einer Gewitter- bzw. Cumulonimbuswolke finden sich sowohl Eisteilchen als auch Wassertropfen.<br/>
                 Durch die starken Aufwinde sammeln sich die leichteren Eisteilchen im oberen Teil der Wolke und sind als
                 riesiger Cirrusschirm in Form eines Ambosses zu sehen. Die großen und damit relativ schweren
                 Regentropfen konzentrieren sich im mittleren und unteren Teil der Wolke.
             </div>
             <div className={"mt-16"}>
-                <div className={"w-full mb-20"}>
-                    <Image alt={"donner"} className={"max-w-[900px]"} src={donner}></Image>
+                <div className={"w-full mb-20 relative"}>
+                    <Image alt={"donner"} className={"max-w-[1000px]"} src={donner}></Image>
+                    <div className={"text-center text-sublabel text-faded-navy mt-2"}>Cumulonimbuswolke mit typischer Ambossform</div>
+                    <SourceTag title={"picture alliance/dpa | Fabian Stoffers"} url={"https://www.br.de/nachrichten/wissen/gewitter-unwetter-superzelle-das-muessen-sie-wissen,TAKGmiJ"}/>
                 </div>
             </div>
 
@@ -51,7 +58,9 @@ export default async function Home() {
                 explosionsartig aus, es entsteht eine Schockwelle. Die damit verbundenen Schallwellen hören wir als
                 Donner. Ist der Blitzeinschlag sehr nah, kracht es heftig, bei größerer Entfernung hört man nur ein
                 dumpfes Grollen. Die Zeit zwischen Blitz und Donner liefert einen Hinweis auf die Entfernung des
-                Gewitters. Drei Sekunden entsprechen etwa einem Kilometer.
+                Gewitters. Drei Sekunden entsprechen etwa einem Kilometer. Ein einfacher Rechner findet sich z.B. <a href={"https://www.bergfreunde.de/entfernung-gewitter-rechner/"} target={"_blank"}>
+                hier
+            </a>.
             </div>
             <h2>Verschiedene Blitze</h2>
             <div>
@@ -65,7 +74,6 @@ export default async function Home() {
             </div>
             <div className={"mt-4"}>
                 <LinkButton icon={<IconLightning className={"h-4"}/>} label={"Weiterlesen zu Blitzarten"} href={"/wissenswertes/blitzarten"}/>
-
             </div>
 
         </div>

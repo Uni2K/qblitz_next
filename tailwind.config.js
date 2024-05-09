@@ -96,9 +96,9 @@ module.exports = {
                 footer: '233px'
             },
             maxWidth: {
-                login: '450px',
-                register: '600px',
-                content: '1100px',
+                content: '1000px',
+                extended: '1200px',
+
             },
             padding: {
                 navbar: '60px',

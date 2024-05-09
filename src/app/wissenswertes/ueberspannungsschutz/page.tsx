@@ -2,12 +2,18 @@ import ueberspannung from '../../../../public/wissenswertes/ueberspannung.png'
 
 import React from "react";
 import Image from "next/image";
+import {Metadata} from "next";
+import SourceTag from "@/components/sourceTag";
 
+export const metadata: Metadata = {
+    title: 'Überspannungsschutz',
+    description: 'Informationen zu Überspannungsschutzen',
+}
 
 export default async function Home() {
 
     return <div className={"z-10 bg-background/80 bg"}>
-        <div className={"flex  flex-col pb-12 flex-grow mt-40 w-[70%] mx-auto max-w-[1000px]"}>
+        <div className={"flex  flex-col pb-12 flex-grow mt-40 w-[70%] mx-auto max-w-content"}>
             <div className={"text-sm text-accent-blue"}>Wissenswertes</div>
             <h1>Überspannungsschutz</h1>
             <div className={"mt-4"}>
@@ -28,12 +34,16 @@ export default async function Home() {
                 Blitzeinschlag.
             </div>
             <div className={"mt-16"}>
-                <div className={" max-w-[700px] mb-20 text-faded-navy text-sm"}>
-                    <Image alt={"donner"}  className={" border-layout-separator border h-full  rounded-lg flex-grow  w-full object-contain"} src={ueberspannung}></Image>
-                    <div className={"mt-2"}>
-                        Schematische Darstellung eines Spannungsverlaufs unter Einfluss von Überspannungen.
-                        Basierend auf: <a href={"https://www.elektro-plus.com/sicherheit/blitz-und-ueberspannungsschutz/ursachen-von-ueberspannungen"}>hier</a>
+                <div className={" relative max-w-[800px] mb-20 text-faded-navy text-sm"}>
+                    <Image alt={"donner"}
+                           className={" border-layout-separator border h-full  rounded-lg flex-grow  w-full object-contain"}
+                           src={ueberspannung}></Image>
+                    <div className={"text-left text-sublabel text-faded-navy mt-2"}> Schematische Darstellung eines
+                        Spannungsverlaufs unter Einfluss von Überspannungen
                     </div>
+                    <SourceTag title={"Basierend auf"}
+                               url={"https://www.elektro-plus.com/sicherheit/blitz-und-ueberspannungsschutz/ursachen-von-ueberspannungen"}/>
+
                 </div>
             </div>
 

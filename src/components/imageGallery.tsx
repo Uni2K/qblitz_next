@@ -645,7 +645,7 @@ const ImageGallery: React.FC = () => {
     return (
         <div>
             <Gallery
-
+margin={2}
                 images={fileNames}
                 thumbnailImageComponent={props => (
                     // @ts-ignore

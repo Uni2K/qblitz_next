@@ -1,19 +1,27 @@
-import flaeche from '../../../../public/lightningtypes/fläche.webp'
-import linie from '../../../../public/lightningtypes/linie.jpg'
-import elms from '../../../../public/lightningtypes/elms.webp'
-import jet from '../../../../public/lightningtypes/jet.jpg'
-import perl from '../../../../public/lightningtypes/perlschnur.webp'
-import elves from '../../../../public/lightningtypes/elves.webp'
-import wolke from '../../../../public/lightningtypes/wolke-wolke.webp'
-import kugel from '../../../../public/lightningtypes/kugel.webp'
-import tscherenkov from '../../../../public/lightningtypes/tscherenkov.webp'
-import sprites from '../../../../public/lightningtypes/sprites.webp'
-import leuchten from '../../../../public/lightningtypes/leuchten.webp'
+import flaeche from '../../../../public/lightningtypes/fläche.png'
+import linie from '../../../../public/lightningtypes/linie.png'
+import elms from '../../../../public/lightningtypes/elms.png'
+import jet from '../../../../public/lightningtypes/jet.png'
+import perl from '../../../../public/lightningtypes/perlschnur.png'
+import elves from '../../../../public/lightningtypes/elves.png'
+import wolke from '../../../../public/lightningtypes/wolke-wolke.png'
+import kugel from '../../../../public/lightningtypes/kugel.png'
+import tscherenkov from '../../../../public/lightningtypes/tscherenkov.png'
+import sprites from '../../../../public/lightningtypes/sprites.png'
+import leuchten from '../../../../public/lightningtypes/leuchten.png'
 
 import React from "react";
 import {StaticImageData} from "next/image";
 import Image from "next/image";
+import IconLink from "@/components/icons/iconLink";
+import {Metadata} from "next";
+import SourceTag from "@/components/sourceTag";
 
+
+export const metadata: Metadata = {
+    title: 'Blitzarten',
+    description: 'Verschiedene Blitzarten',
+}
 
 type DataCard = {
     title: string,
@@ -131,7 +139,7 @@ const data: DataCard[] = [
 export default async function Home() {
 
     return <div className={"z-10 bg-background/80 bg"}>
-        <div className={"flex  flex-col pb-12 flex-grow mt-40  w-[70%] mx-auto"}>
+        <div className={"flex  flex-col pb-12 flex-grow mt-40 max-w-extended w-[70%] mx-auto"}>
             <div className={"text-sm text-accent-blue"}>Wissenswertes</div>
             <h1>Blitzarten</h1>
             <div className={"mt-4"}>
@@ -147,9 +155,9 @@ export default async function Home() {
                         <div className={"basis-1/2"}>
                             <h3 className={"mb-2"}>{value.title}</h3>
                             <div className={"text-faded-navy max-w-[400px]"}>{value.description}</div>
-                            <div className={"flex flex-row gap-8 text-sm mt-8"}>
-                                <div className={"border border-accent-blue px-4 py-1 cursor-pointer"}>Mehr Informationen</div>
-                                <div className={"border border-accent-blue px-4 py-1"}>Video aufrufen</div>
+                            <div className={"flex flex-row gap-4 text-sm mt-8"}>
+                                <a href={value.source?.url} className={"border border-accent-blue px-4 py-1 cursor-pointer hover:bg-default-hover"}>Mehr Informationen</a>
+                                <a href={"https://www.youtube.com/watch?v=p-TCPggwUzI"} target={"_blank"} className={"hover:bg-default-hover border border-primary-error px-4 py-1"}>Video aufrufen</a>
                             </div>
                         </div>
 
@@ -158,12 +166,18 @@ export default async function Home() {
                 </div>
 
                 {data.slice(1).map((value, index) =>
-                    <div key={"bl_"+index} className={"flex flex-col basis-[27%] max-w-[400px] flex-grow flex-shrink"}>
-                        <div className={""}>
-                            {value.image && <Image alt={value.title} src={value.image} className={"aspect-[16/12]"}/>}
-                            <h3 className={"mt-4"}>{value.title}</h3>
+                    <div key={"bl_" + index}
+                         className={"flex flex-col basis-[27%] max-w-[400px] flex-grow flex-shrink"}>
+                        <div className={"relative"}>
+                            {value.image && <Image alt={value.title} src={value.image} className={"aspect-[16/12] flex-grow"}/>}
+                            <SourceTag url={value?.source?.url} title={value?.source?.title}/>
+                            <div className={"mt-4 flex items-center pr-2"}>
+                                <h3 className={""}>{value.title}</h3>
+                            </div>
+
                         </div>
                         <div className={"text-faded-navy mt-2"}>{value.description}</div>
+
 
                     </div>
                 )}

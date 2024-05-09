@@ -6,7 +6,12 @@ import IconEmail from "@/components/icons/iconEmail";
 import IconPhone from "@/components/icons/iconPhone";
 import Image from "next/image";
 import Link from "next/link";
+import {Metadata} from "next";
 
+export const metadata: Metadata = {
+    title: 'Kontakt & Impressum',
+    description: 'Kontakt & Impressum',
+}
 
 export default async function Home() {
 
