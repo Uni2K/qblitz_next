@@ -12,13 +12,16 @@ module.exports = {
             sm: '660px',
             md: '768px',
             xmd: '950px' /*Index Tablet*/,
-            xlmd: '1100px' /*Index Tablet*/,
             lm: '1200px',
-            lg: '1330px',
+            lg: '1360px',
             xl: '1440px',
-            xll: '1600px', //only for index -> laptops
             xlll: '1920px', //navbar vs toolbar
             xxl: '2560px', //larger than full HD -> wide screens
+
+
+            xll: '1533px',
+            xlmd: '1050px'
+
         },
         fontWeight: {
             bold: 600,
@@ -98,6 +101,7 @@ module.exports = {
             maxWidth: {
                 content: '1000px',
                 extended: '1200px',
+                ultra: '1400px',
 
             },
             padding: {

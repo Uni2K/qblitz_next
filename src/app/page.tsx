@@ -22,40 +22,38 @@ import {ImageCard} from "@/components/imageCard";
 export default async function Home() {
 
     return <div className={""}>
-        <div className={"flex justify-end flex-col pb-12 flex-grow -mt-48 h-screen w-[70%] mx-auto"}>
+        <div className={"flex justify-end flex-col pb-4 min-[571px]:pb-12 flex-grow -mt-48 h-screen w-[90%] mx-auto"}>
             <Image
-                src={background} className={"absolute top-0 left-0 z-0"}
-                alt={"background"}/>
-
-            <div className={"z-10 text-white flex flex-row gap-8 mx-auto items-center justify-end "}>
+                src={background} priority fetchPriority={'high'} className={"absolute top-0 left-0 z-0 max-h-full"}
+                alt={"background"} placeholder="blur"/>
+            <div className={"z-10 text-white flex flex-col min-[571px]:flex-row gap-4 min-[571px]:gap-8  min-[571px]:flex-wrap mx-auto items-center justify-center "}>
                 <Link href={"#leistungen"}
-                      className={"flex gap-4 items-center cursor-pointer hover:bg-default-hover py-2 pr-5 px-4"}>
+                      className={"max-[753px]:w-[220px] flex gap-4 items-center cursor-pointer hover:bg-default-hover py-2 pr-5 px-4"}>
                     <IconLightning className={"h-6 fill-white"}/>Innerer
                     &<br/> Äußerer Blitzschutz
                 </Link>
-                <div className={"h-[40px] bg-layout-separator w-[1px]"}/>
+                <div className={"h-[40px] bg-layout-separator w-[1px] max-[571px]:hidden"}/>
                 <Link href={"#zeichnungen"}
-                    className={"flex gap-4 items-center cursor-pointer hover:bg-default-hover py-2 pr-5 px-4"}>
+                    className={"max-[753px]:w-[220px] flex gap-4 items-center cursor-pointer hover:bg-default-hover py-2 pr-5 px-4"}>
                     <IconDrawing className={"h-6 fill-white"}/>Technische
                     &<br/> Zeichnungen
                 </Link>
-                <div className={"h-[40px] bg-layout-separator w-[1px]"}/>
+                <div className={"h-[40px] bg-layout-separator w-[1px] hidden min-[755px]:block  max-[571px]:hidden"}/>
                 <Link href={"#andere_leistungen"}
-                    className={"flex gap-4 items-center cursor-pointer hover:bg-default-hover py-2 pr-5 px-4"}>
+                    className={"max-[753px]:w-[220px] flex gap-4 items-center cursor-pointer hover:bg-default-hover py-2 pr-5 px-4"}>
                     <IconCoach className={"h-6 fill-white"}/>Beratung
                     &<br/> Gutachten
                 </Link>
-                <div className={"h-[40px] bg-layout-separator w-[1px]"}/>
+                <div className={"h-[40px] bg-layout-separator w-[1px] invisible min-[1050px]:visible max-[753px]:visible max-[571px]:hidden"}/>
                 <Link href={"#andere_leistungen"}
-                    className={"flex gap-4 items-center cursor-pointer hover:bg-default-hover py-2 pr-5 px-4"}>
+                    className={"max-[753px]:w-[220px] flex gap-4 items-center cursor-pointer hover:bg-default-hover py-2 pr-5 px-4"}>
                     <IconLadder className={"h-6 fill-white"}/>Materialverkauf
                     &<br/> Leiternprüfung
                 </Link>
-
             </div>
         </div>
-        <div className={"z-10 my-24 bg-layout-separator h-[1px] w-full"} id={"leistungen"}></div>
-        <div className={"z-10 w-[70%] mx-auto pl-14"} >
+        <div className={"z-20 my-24 bg-layout-separator h-[1px] w-full"} id={"leistungen"}></div>
+        <div className={"z-10 max-w-ultra w-[90%] mx-auto px-14"} >
             <h2 className={"flex gap-4 items-center -ml-14"}>
                 <IconLightning className={"h-10 fill-white"}/>Innerer
                 &<br/> Äußerer Blitzschutz
@@ -66,7 +64,7 @@ export default async function Home() {
                 <br/>
                 Wir bieten deshalb folgende Leistungen an:
 
-                <div className={"flex mt-12 gap-14 flex-wrap"}>
+                <div className={"flex mt-12 gap-10 xll:gap-16 flex-wrap"}>
                     <ImageCard isForNewStatus={0}
                                image={image1}
                                title={"Planung"}
@@ -87,7 +85,7 @@ export default async function Home() {
                     Für bestehende Hallen, Betriebsgebiete, Schulen etc. bieten wir folgende Leistungen an:
                 </p>
 
-                <div className={"flex gap-14 flex-wrap"}>
+                <div className={"flex gap-16 flex-wrap"}>
 
                     <ImageCard isForNewStatus={1}
                                title={"Prüfung"}
@@ -107,12 +105,10 @@ export default async function Home() {
 
         </div>
         <div className={"z-10 my-24 bg-layout-separator h-[1px] w-full"} id={"zeichnungen"}></div>
-        <div className={"z-10 w-[70%] mx-auto pb-24"}>
+        <div className={"z-10 max-w-ultra w-[90%] mx-auto px-14 pb-24"}>
             <div>
-
-                <div className={"flex flex-row gap-12"}>
-
-                    <div className={"basis-1/2 flex relative p-8 mr-20"}>
+                <div className={"flex flex-row gap-8 lg:gap-12 flex-wrap lm:flex-nowrap"}>
+                    <div className={"lm:basis-1/2 basis-full max-w-[500px] lm:max-w-[700px] flex flex-shrink-0 relative lm:p-8 mr-20"}>
                         <Image
                             src={drawing1} className={" border-layout-separator border h-full  rounded-lg flex-grow  w-full object-contain"}
                             alt={"background "}/>
@@ -121,8 +117,8 @@ export default async function Home() {
                             alt={"background "}/>
                     </div>
 
-                    <div className={"max-w-[550px] flex  flex-col justify-center"}>
-                        <h2 className={"font-bold mb-4 flex flex-row gap-4 -ml-14"}><IconDrawing
+                    <div className={"max-w-[800px] lm:max-w-[550px] lm:basis-1/2 basis-full flex  flex-col justify-center"}>
+                        <h2 className={"font-bold mb-4 flex flex-row gap-4 -ml-14 mt-10 lm:mt-0"}><IconDrawing
                             className={"w-8 fill-white"}/>Technische Zeichnungen
                         </h2>
                         Die Grundlage jeder Blitzschutzanlage bilden professionell angefertigte Prüfunterlagen.
@@ -137,8 +133,8 @@ export default async function Home() {
                     </div>
 
                 </div>
-                <div className={"flex mt-24 gap-24 flex-wrap pl-20 "} id={"andere_leistungen"}>
-                    <div className={"max-w-[550px] p-4"}>
+                <div className={"flex mt-24 gap-20 xll:gap-24 flex-wrap lm:pl-20 "} id={"andere_leistungen"}>
+                    <div className={"lg:basis-[46%]"}>
                         <div className={"font-bold mb-4 flex flex-row gap-4 -ml-10"}><IconSelling
                             className={"w-6 fill-white"}/>Materialverkauf
                         </div>
@@ -149,7 +145,7 @@ export default async function Home() {
                         Für den Inneren Blitzschutz verkaufen wir darüber hinaus auch Überspannungsschutze in mehreren
                         Ausführungen.
                     </div>
-                    <div className={"max-w-[550px] p-4"}>
+                    <div className={"lg:basis-[46%]"}>
                         <div className={"font-bold mb-4 flex flex-row gap-4 -ml-10"}><IconLadder
                             className={"w-6 fill-white"}/>Leiternprüfung
                         </div>
@@ -159,7 +155,7 @@ export default async function Home() {
                         Die Erstellung von Prüfbericht, Prüfplaketten und Leiternkontrollbuch übernehmen wir
                         selbstverständlich ebenso.
                     </div>
-                    <div className={"max-w-[550px] p-4"}>
+                    <div className={"lg:basis-[46%]"}>
                         <div className={"font-bold mb-4 flex flex-row gap-4 -ml-10"}><IconTeaching
                             className={"w-6 fill-white"}/>Weiterbildungen / Seminare
                         </div>
@@ -167,7 +163,7 @@ export default async function Home() {
                         Während der Dauer des Seminars bringen wir Ihnen alles, was funktionsfähige Erdungsanlagen
                         ausmacht, näher.
                     </div>
-                    <div className={"max-w-[550px] p-4"}>
+                    <div className={"lg:basis-[46%]"}>
                         <div className={"font-bold mb-4 flex flex-row gap-4 -ml-10"}><IconCoach
                             className={"w-6 fill-white"}/>Beratungen & Gutachten
                         </div>

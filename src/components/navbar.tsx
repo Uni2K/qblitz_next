@@ -3,15 +3,17 @@
 import Link from "next/link";
 import {usePathname} from "next/navigation";
 import React from "react";
-import Logo from "@/components/logo";
+import SideNavbar from "@/components/navbarSide";
+import Image from "next/image";
+import logo from '../../public/logo.png'
 
 
-type NavbarEntry = {
+export type NavbarEntry = {
     label: string,
     selected?: boolean,
     link: string,
     subEntries?: NavbarEntry[]
-    subSelected?:boolean
+    subSelected?: boolean
 }
 
 
@@ -49,50 +51,67 @@ export const DashboardSidebar = () => {
         },
     ]
 
-    let somethingSelected=false
+    let somethingSelected = false
     for (let entry of entries) {
         if (entry.link && pathname.includes(entry.link)) {
             entry.selected = true
-            somethingSelected=true
+            somethingSelected = true
             break
         }
         for (let subEntry of entry?.subEntries ?? []) {
             if (pathname.includes(subEntry.link)) {
                 subEntry.selected = true
-                entry.subSelected=true
-                somethingSelected=true
+                entry.subSelected = true
+                somethingSelected = true
                 break
             }
         }
     }
-    if (!somethingSelected){
+    if (!somethingSelected) {
         entries[0].selected = true
     }
 
     return <nav
-        className={`w-[100vw-8px] mt-16 flex-col z-20  items-center gap-3  sticky flex flex-grow transition-all `}>
-        <Logo icon={false}/>
-        <div className={"flex mt-2 gap-4 overflow-hidden "}>
+        className={`w-[100vw-8px]  h-[70px] md:h-[unset] mt-0 md:mt-16 md:flex-col items-center z-20 md:justify-center gap-3 sticky flex flex-grow transition-all `}>
+        <Link href="/" className={"pl-8 md:px-10 mr-10 tiny:mr-20 sm:mr-0"}>
+            <Image
+                className={`min-[480px]:max-w-[400px] md:max-w-[unset]`}
+                src={logo}
+                alt="logo"
+                width="509"
+                height="57"
+            />
+
+        </Link>
+
+        <div className={"block md:hidden"}><SideNavbar entries={entries}/></div>
+        <div className={"mt-2 gap-4 overflow-hidden hidden md:flex "}>
             {entries.map((value) => getEntry(value))}
         </div>
+
+
     </nav>
 }
 
 
 function getEntry(entry: NavbarEntry) {
 
-    return <div className={`${entry.subEntries && 'dropdown'} py-1 hover:bg-default-hover ${entry.subSelected? "border-b  border-primary-error":""}`} key={entry.label}>
-        <Link href={entry.link} key={entry.label}
-              className={`flex cursor-pointer rounded  ${entry.subEntries ? "" : "hover:text-primary-error"} justify-center md:justify-normal items-center md:px-4  ${entry.selected ? "text-primary-error" : ""}`}>
-            <div
-                className={`flex gap-3 py-1 items-center text-[14px] font-bold`}><span
-                className={"hidden md:block"}>{entry.label}</span>
+    return <>
+        <div
+            className={`${entry.subEntries && 'dropdown'} py-1 hover:bg-default-hover ${entry.subSelected ? "border-b  border-primary-error" : ""}`}
+            key={entry.label}>
+            <Link href={entry.link} key={entry.label}
+                  className={`flex cursor-pointer rounded  ${entry.subEntries ? "" : "hover:text-primary-error"} justify-center md:justify-normal items-center md:px-4  ${entry.selected ? "text-primary-error" : ""}`}>
+                <div
+                    className={`flex gap-3 py-1 items-center text-[14px] font-bold`}><span
+                    className={""}>{entry.label}</span>
+                </div>
+            </Link>
+            <div className={"dropdown-content"}>
+                {entry.subEntries?.map((value) => getEntry(value))}
             </div>
-        </Link>
-        <div className={"dropdown-content"}>
-            {entry.subEntries?.map((value) => getEntry(value))}
         </div>
-    </div>
+    </>
 }
 
 

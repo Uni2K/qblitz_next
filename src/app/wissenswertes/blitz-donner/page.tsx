@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default async function Home() {
 
     return <div className={"z-10 bg-background/80 bg"}>
-        <div className={"flex  flex-col pb-12 flex-grow mt-40 w-[70%] mx-auto max-w-content"}>
+        <div className={"flex  flex-col pb-12 flex-grow mt-20 md:mt-40 w-[85%] mx-auto max-w-content"}>
             <div className={"text-sm text-accent-blue"}>Wissenswertes</div>
             <h1>Blitz & Donner</h1>
             <div className={"mt-4"}>
@@ -25,9 +25,8 @@ export default async function Home() {
             </div>
             <div className={"mt-16"}>
                 <div className={"w-full mb-20 relative"}>
-                    <Image alt={"donner"} className={"max-w-[1000px]"} src={donner}></Image>
-                    <div className={"text-center text-sublabel text-faded-navy mt-2"}>Cumulonimbuswolke mit typischer Ambossform</div>
-                    <SourceTag title={"picture alliance/dpa | Fabian Stoffers"} url={"https://www.br.de/nachrichten/wissen/gewitter-unwetter-superzelle-das-muessen-sie-wissen,TAKGmiJ"}/>
+                    <Image alt={"donner"} className={"max-w-[1000px] w-full"} src={donner}></Image>
+                    <SourceTag title={"Cumulonimbuswolke mit typischer Ambossform"} sourceTitle={"picture alliance/dpa | Fabian Stoffers"} sourceUrl={"https://www.br.de/nachrichten/wissen/gewitter-unwetter-superzelle-das-muessen-sie-wissen,TAKGmiJ"}/>
                 </div>
             </div>
 

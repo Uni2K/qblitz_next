@@ -274,4 +274,8 @@
     a[target='_blank'] {
         @apply underline text-accent-blue;
     }
+   button > a[target='_blank'] {
+        @apply no-underline;
+       color:inherit;
+    }
 }

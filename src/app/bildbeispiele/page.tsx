@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default async function Home() {
     return <div className={"z-10 bg-background/80 bg"}>
-        <div className={"flex max-w-extended flex-col pb-12 flex-grow mt-24 mx-auto"}>
+        <div className={"flex max-w-extended flex-col pb-12 flex-grow mt-10 md:mt-24 mx-auto"}>
             <ImageGallery />
         </div>
     </div>

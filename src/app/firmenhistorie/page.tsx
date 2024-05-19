@@ -12,13 +12,13 @@ import image2 from '../../../public/technical_drawing.png'
 export default function Home() {
 
     return <div className={"z-10 bg-background/80 bg"}>
-        <div className={"flex flex-col pb-12 flex-grow mt-40 max-w-content w-[70%] mx-auto"}>
+        <div className={"flex flex-col pb-12 flex-grow mt-20 md:mt-40 max-w-content w-[85%] mx-auto"}>
             <div className={"text-sm text-accent-blue"}>Firmenhistorie</div>
             <h1>Sachverstand mit über 30 Jahren Erfahrung</h1>
             <div className={"mt-4"}>
-                Die Firma blickt auf eine langjährige Erfahrung im Blitzschutzbau zurück.<br/>
+                Die Firma blickt auf eine langjährige Erfahrung im Blitzschutzbau zurück.<br className={"hidden md:block"}/>
                 Bereits seit den 1990er Jahren prüfen und errichten wir hauptberuflich Blitzschutzsystemen für Privat-
-                und Gewerbekunden. <br/>Da sich mit der Zeit gesetzliche Vorschriften und Normen ändern, bilden wir uns
+                und Gewerbekunden. <br className={"hidden md:block"} />Da sich mit der Zeit gesetzliche Vorschriften und Normen ändern, bilden wir uns
                 regelmäßig über Seminare und Fachtagungen weiter.<br/>
                 <br/>
                 Darüber hinaus sind wir seit 1997 Mitglied im Bundesverband Deutscher Sachverständiger des Handwerks

@@ -139,7 +139,7 @@ const data: DataCard[] = [
 export default async function Home() {
 
     return <div className={"z-10 bg-background/80 bg"}>
-        <div className={"flex  flex-col pb-12 flex-grow mt-40 max-w-extended w-[70%] mx-auto"}>
+        <div className={"flex  flex-col pb-12 flex-grow max-w-extended mt-20 md:mt-40 w-[85%] mx-auto"}>
             <div className={"text-sm text-accent-blue"}>Wissenswertes</div>
             <h1>Blitzarten</h1>
             <div className={"mt-4"}>
@@ -148,16 +148,16 @@ export default async function Home() {
             </div>
             <div className={"flex flex-wrap gap-20 mt-24"}>
                 <div className={"w-full mb-20"}>
-                    {data.slice(0, 1).map(value => <div key={value.title} className={"flex flex-row flex-grow flex-shrink gap-16"}>
-                        <div className={"basis-1/2 bg"}>
+                    {data.slice(0, 1).map(value => <div key={value.title} className={"flex flex-row flex-wrap min-[791px]:flex-nowrap flex-grow flex-shrink gap-16"}>
+                        <div className={"md:basis-1/2 max-w-[600px]"}>
                             {value.image && <Image alt={value.title} src={value.image} className={"w-full"}/>}
                         </div>
-                        <div className={"basis-1/2"}>
+                        <div className={"md:basis-1/2"}>
                             <h3 className={"mb-2"}>{value.title}</h3>
                             <div className={"text-faded-navy max-w-[400px]"}>{value.description}</div>
                             <div className={"flex flex-row gap-4 text-sm mt-8"}>
                                 <a href={value.source?.url} className={"border border-accent-blue px-4 py-1 cursor-pointer hover:bg-default-hover"}>Mehr Informationen</a>
-                                <a href={"https://www.youtube.com/watch?v=p-TCPggwUzI"} target={"_blank"} className={"hover:bg-default-hover border border-primary-error px-4 py-1"}>Video aufrufen</a>
+                                <button className={"hover:bg-default-hover border border-primary-error px-4 py-1"}><a href={"https://www.youtube.com/watch?v=p-TCPggwUzI"} target={"_blank"} className={""}>Video aufrufen</a></button>
                             </div>
                         </div>
 
@@ -167,7 +167,7 @@ export default async function Home() {
 
                 {data.slice(1).map((value, index) =>
                     <div key={"bl_" + index}
-                         className={"flex flex-col basis-[27%] max-w-[400px] flex-grow flex-shrink"}>
+                         className={"flex flex-col md:basis-[27%] min-w-[300px] max-w-[400px] flex-grow flex-shrink"}>
                         <div className={"relative"}>
                             {value.image && <Image alt={value.title} src={value.image} className={"aspect-[16/12] flex-grow"}/>}
                             <SourceTag url={value?.source?.url} title={value?.source?.title}/>
@@ -177,8 +177,6 @@ export default async function Home() {
 
                         </div>
                         <div className={"text-faded-navy mt-2"}>{value.description}</div>
-
-
                     </div>
                 )}
             </div>

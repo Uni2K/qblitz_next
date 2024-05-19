@@ -22,7 +22,7 @@ export const ImageCard = ({title, image, isForNewStatus, text}: ImageCardProps) 
                 </div>
             </div>
 
-            <div className={"max-w-[550px] textContent opacity-80"}>{text}
+            <div className={"xlmd:max-w-[340px] lm:max-w-[400px] lg:max-w-[480px] xll:max-w-[550px] textContent opacity-80"}>{text}
             </div>
         </div>
     </div>

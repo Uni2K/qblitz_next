@@ -16,15 +16,15 @@ export const metadata: Metadata = {
 export default async function Home() {
 
     return <div className={"z-10 bg-background/80 bg"}>
-        <div className={"flex  flex-col pb-12 flex-grow mt-40  w-[70%] mx-auto"}>
-            <div className={"flex flex-row"}>
-                <div className={"basis-[47%] p-8 pl-0"}>
+        <div className={"flex  flex-col pb-12 flex-grow mt-20 md:mt-40 w-[80%] lg:w-[70%] mx-auto"}>
+            <div className={"flex flex-row gap-8 flex-wrap xlmd:flex-nowrap"}>
+                <div className={"xlmd:basis-[47%] p-8 pl-0"}>
                     <div className={"text-sm text-accent-blue"}>Kontakt</div>
                     <h1>Wir helfen Ihnen gerne</h1>
-                    <div className={"mb-4 mt-8"}>Egal ob allgemeine Frage, konkretes Anliegen<br/>
+                    <div className={"mb-4 mt-8"}>Egal ob allgemeine Frage, konkretes Anliegen<br className={"hidden md:block"}/>
                         oder Angebotsanforderung. Wir helfen Ihnen gerne persönlich weiter.
                     </div>
-                    <div className={"mb-4"}>Schreiben Sie uns eine E-Mail oder rufen Sie uns einfach direkt an.<br/>
+                    <div className={"mb-4"}>Schreiben Sie uns eine E-Mail oder rufen Sie uns einfach direkt an.<br className={"hidden md:block"}/>
                         Wir sind von Montag bis Freitag von <b>6:30</b> Uhr bis <b>17:00</b> Uhr erreichbar.
                     </div>
 
@@ -40,7 +40,7 @@ export default async function Home() {
                         </a>
                     </div>
                 </div>
-                <div className={"basis-[53%] p-0"}>
+                <div className={"xlmd:basis-[53%] p-0"}>
                     <div className={"relative"}><Link href={"https://maps.app.goo.gl/RTRutB2RHsCGnzSR8"} target={"_blank"}><Image
                         src={location} className={""}
                         alt={"map"}/></Link>
@@ -60,7 +60,7 @@ export default async function Home() {
                     </div>
                 </div>
             </div>
-            <div className={"z-10 my-32 bg-layout-separator h-[1px] w-full"}></div>
+            <div className={"z-10 my-32 bg-layout-separator h-[1px] w-full max-w-content"}></div>
             <div>
                 <h2 className={"mb-8 mt-0"}>Impressum</h2>
 
