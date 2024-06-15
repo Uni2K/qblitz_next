@@ -1,4 +1,4 @@
-import location from '../../../public/location.png'
+import location from '../../../public/location.webp'
 import mapslogo from '../../../public/maps.png'
 
 import React from "react";

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="home38713941.1and1-data.host" id="ecc74f43-c7b9-461a-86b2-53512c0551e3" port="22" customName="qblitz" nameFormat="CUSTOM" username="p8484099" useOpenSSHConfig="true">
+        <option name="customName" value="qblitz" />
+      </sshConfig>
+    </configs>
+  </component>
+</project>

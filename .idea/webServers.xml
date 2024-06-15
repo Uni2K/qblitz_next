@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="b7d2d43d-e7e5-4823-854e-e0524744a41b" name="qblitz" url="">
+        <fileTransfer accessType="SFTP" host="home38713941.1and1-data.host" port="22" sshConfigId="ecc74f43-c7b9-461a-86b2-53512c0551e3" sshConfig="qblitz">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

@@ -5,7 +5,7 @@ import {VerticalTimeline, VerticalTimelineElement} from 'react-vertical-timeline
 import 'react-vertical-timeline-component/style.min.css';
 import Image from "next/image";
 import image1 from '../../../public/history/image1.png'
-import image2 from '../../../public/technical_drawing.png'
+import image2 from '../../../public/technical_drawing.webp'
 import Link from "next/link";
 
 
