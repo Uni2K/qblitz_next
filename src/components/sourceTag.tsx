@@ -11,7 +11,7 @@ const SourceTag: React.FC<SourceTagProps> = ({sourceUrl, sourceTitle, title, cla
 
     return <div className={"group"}>
         <div className={"group-hover:invisible xlmd:text-center text-sublabel text-faded-navy mt-2"}>{title}</div>
-        <div className="-mt-[22px] right-3 absolute">
+        <div className="sm:-mt-[21px] right-3 absolute">
             <a href={sourceUrl} target={"_blank"}
                className={`${classes} !no-underline flex items-center gap-2 text-sublabel !text-faded-navy hover:text-faded-navy-dark  overflow-hidden`}>
                                     <span

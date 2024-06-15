@@ -2,6 +2,7 @@ import ueberspannung from '../../../../public/start_4.webp'
 import React from "react";
 import Image from "next/image";
 import {Metadata} from "next";
+import potentialausgleich from "../../../../public/wissenswertes/potentialausgleich.webp";
 
 export const metadata: Metadata = {
     title: 'Äußerer Blitzschutz',
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 export default async function Home() {
 
     return <div className={"z-10 bg-background/80 bg"}>
-        <div className={"flex  flex-col pb-12 flex-grow mt-40 w-[70%] mx-auto max-w-content"}>
+        <div className={"flex  flex-col pb-12 flex-grow mt-40 w-[85%] mx-auto max-w-content"}>
             <div className={"text-sm text-accent-blue"}>Wissenswertes</div>
             <h1>Äußerer Blitzschutz</h1>
             <div className={"mt-4"}>
@@ -95,7 +96,7 @@ export default async function Home() {
                 Durch den Potentialausgleich und dem relativ hohen Isolationswiderstand innerhalb der meisten Gebäude
                 sind wir als Person recht gut geschützt. In den Elektrogeräten jedoch entsteht eine Potentialdifferenz
                 zwischen den geerdeten Leitern und den nicht geerdeten.
-                <br/>
+                <br/><br/>
                 Diese Potentialdifferenz ist die Ursache für die Schäden, weil es zu Überschlägen kommt. Etwa die Hälfte
                 des Blitzstromes wird über die Erdungsanlage abgeleitet, die andere Hälfte geht z.B. über die anderen
                 metallen leitenden Installationen ins Erdreich.
@@ -115,20 +116,21 @@ export default async function Home() {
                 Beispiel: Ein älteres Gebäude ohne PA, Elektroinstallation, noch mit klassischer Nullung in den
                 Steckdosen wurde dann nur der Null mit dem Schutzleiterkontakt verbunden. (d.h. am Gerätegehäuse liegt
                 nicht der Schutzleiter, sondern der Nullleiter ein Spannungsführender Leiter an!)
-                <br/>
+                <br/> <br/>
                 Jetzt baut jemand eine Antenne auf das Dach und installiert vorschriftsmäßig eine Antennenerdung. Da der
                 Betreiber der Antennenanlage Angst vor Blitzeinschlägen hat steckt er die Antenne immer erst in sein
                 Gerät, wenn er es benutzt.
                 <br/>
                 Gerätegehäuse aus Metall und der Stecker ebenfalls. In dem Moment, wo er beide Teile gleichzeitig
                 berührt fließen über seinen Körper Ausgleichsströme.
-                <br/>
                 Wäre ein Potentialausgleich vorhanden, würden diese Ausgleichströme darüber fließen. Es gibt die
                 unterschiedlichsten Konstellationen, warum verschiedene Potentiale auf metallen leitenden Objekten
                 entstehen, deshalb wird einfach gefordert, herstellen des PA.
-                <br/>
                 Wenn jetzt eine Blitzschutzanlage errichtet wird, ändert sich an der Funktion des PA gar nichts. Er wird
                 nur mit der Blitzschutzanlage verbunden.
+                <Image alt={"Potentialausgleich"} className={"mt-8 max-w-[600px] w-full"}
+                       src={potentialausgleich}></Image>
+
             </div>
         </div>
     </div>

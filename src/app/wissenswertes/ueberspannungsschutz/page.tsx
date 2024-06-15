@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default async function Home() {
 
     return <div className={"z-10 bg-background/80 bg"}>
-        <div className={"flex  flex-col pb-12 flex-grow mt-40 w-[70%] mx-auto max-w-content"}>
+        <div className={"flex flex-col pb-12 flex-grow mt-40 w-[85%] mx-auto max-w-content"}>
             <div className={"text-sm text-accent-blue"}>Wissenswertes</div>
             <h1>Überspannungsschutz</h1>
             <div className={"mt-4"}>
@@ -37,12 +37,10 @@ export default async function Home() {
                 <div className={" relative max-w-[800px] mb-20 text-faded-navy text-sm"}>
                     <Image alt={"donner"}
                            className={" border-layout-separator border h-full  rounded-lg flex-grow  w-full object-contain"}
-                           src={ueberspannung}></Image>
-                    <div className={"text-left text-sublabel text-faded-navy mt-2"}> Schematische Darstellung eines
-                        Spannungsverlaufs unter Einfluss von Überspannungen
-                    </div>
-                    <SourceTag title={"Basierend auf"}
-                               url={"https://www.elektro-plus.com/sicherheit/blitz-und-ueberspannungsschutz/ursachen-von-ueberspannungen"}/>
+                           src={ueberspannung}/>
+                    <SourceTag sourceTitle={"Basierend auf"}
+                               title={"Schematische Darstellung eines Spannungsverlaufs unter Einfluss von Überspannungen"}
+                               sourceUrl={"https://www.elektro-plus.com/sicherheit/blitz-und-ueberspannungsschutz/ursachen-von-ueberspannungen"}/>
 
                 </div>
             </div>

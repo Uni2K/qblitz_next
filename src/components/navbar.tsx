@@ -86,7 +86,7 @@ export const DashboardSidebar = () => {
 
         <div className={"block md:hidden"}><SideNavbar entries={entries}/></div>
         <div className={"mt-2 gap-4 overflow-hidden hidden md:flex "}>
-            {entries.map((value) => getEntry(value))}
+            {entries.map((value, index) => getEntry(value, index))}
         </div>
 
 
@@ -94,12 +94,11 @@ export const DashboardSidebar = () => {
 }
 
 
-function getEntry(entry: NavbarEntry) {
+function getEntry(entry: NavbarEntry, index:number) {
 
-    return <>
-        <div
+    return <div
             className={`${entry.subEntries && 'dropdown'} py-1 hover:bg-default-hover ${entry.subSelected ? "border-b  border-primary-error" : ""}`}
-            key={entry.label}>
+            key={entry.label+ "en"+entry.subEntries?.length+" "+index}>
             <Link href={entry.link} key={entry.label}
                   className={`flex cursor-pointer rounded  ${entry.subEntries ? "" : "hover:text-primary-error"} justify-center md:justify-normal items-center md:px-4  ${entry.selected ? "text-primary-error" : ""}`}>
                 <div
@@ -108,10 +107,9 @@ function getEntry(entry: NavbarEntry) {
                 </div>
             </Link>
             <div className={"dropdown-content"}>
-                {entry.subEntries?.map((value) => getEntry(value))}
+                {entry.subEntries?.map((value, index) => getEntry(value,index ))}
             </div>
         </div>
-    </>
 }
 
 

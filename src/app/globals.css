@@ -4,6 +4,11 @@
 @import 'tailwindcss/utilities';
 
 @layer base {
+    html{
+        scroll-behavior: smooth;
+    }
+
+
     html,
     body,
     div#__next {
@@ -278,4 +283,5 @@
         @apply no-underline;
        color:inherit;
     }
+
 }

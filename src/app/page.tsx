@@ -53,8 +53,8 @@ export default async function Home() {
             </div>
         </div>
         <div className={"z-20 my-24 bg-layout-separator h-[1px] w-full"} id={"leistungen"}></div>
-        <div className={"z-10 max-w-ultra w-[90%] mx-auto px-14"} >
-            <h2 className={"flex gap-4 items-center -ml-14"}>
+        <div className={"z-10 max-w-ultra w-[90%] mx-auto px-2 sm:px-14"} >
+            <h2 className={"flex gap-4 items-center  sm:-ml-14"}>
                 <IconLightning className={"h-10 fill-white"}/>Innerer
                 &<br/> Äußerer Blitzschutz
             </h2>
@@ -105,7 +105,7 @@ export default async function Home() {
 
         </div>
         <div className={"z-10 my-24 bg-layout-separator h-[1px] w-full"} id={"zeichnungen"}></div>
-        <div className={"z-10 max-w-ultra w-[90%] mx-auto px-14 pb-24"}>
+        <div className={"z-10 max-w-ultra w-[90%] mx-auto px-2 sm:px-14 pb-24"}>
             <div>
                 <div className={"flex flex-row gap-8 lg:gap-12 flex-wrap lm:flex-nowrap"}>
                     <div className={"lm:basis-1/2 basis-full max-w-[500px] lm:max-w-[700px] flex flex-shrink-0 relative lm:p-8 mr-20"}>
@@ -118,7 +118,7 @@ export default async function Home() {
                     </div>
 
                     <div className={"max-w-[800px] lm:max-w-[550px] lm:basis-1/2 basis-full flex  flex-col justify-center"}>
-                        <h2 className={"font-bold mb-4 flex flex-row gap-4 -ml-14 mt-10 lm:mt-0"}><IconDrawing
+                        <h2 className={"font-bold mb-4 flex flex-row gap-4 sm:-ml-14 mt-10 lm:mt-0"}><IconDrawing
                             className={"w-8 fill-white"}/>Technische Zeichnungen
                         </h2>
                         Die Grundlage jeder Blitzschutzanlage bilden professionell angefertigte Prüfunterlagen.
@@ -135,7 +135,7 @@ export default async function Home() {
                 </div>
                 <div className={"flex mt-24 gap-20 xll:gap-24 flex-wrap lm:pl-20 "} id={"andere_leistungen"}>
                     <div className={"lg:basis-[46%]"}>
-                        <div className={"font-bold mb-4 flex flex-row gap-4 -ml-10"}><IconSelling
+                        <div className={"font-bold mb-4 flex flex-row gap-4  sm:-ml-10"}><IconSelling
                             className={"w-6 fill-white"}/>Materialverkauf
                         </div>
                         Falls Sie einzelne Bauteile eines Blitzschutzsystems erwerben möchten, beraten wir Sie gerne.
@@ -143,20 +143,20 @@ export default async function Home() {
                         eine große Anzahl von unterschiedlichen Komponenten an, darunter
                         Klemmverbinder, Halterungen, Erder, Drähte, Bänder sowie Isoliermaterial.
                         Für den Inneren Blitzschutz verkaufen wir darüber hinaus auch Überspannungsschutze in mehreren
-                        Ausführungen.
+                        Ausführungen. Klicken Sie <Link className={"text-accent-blue underline"} href={"/materialverkauf"}>hier</Link> um das Angebot zu sehen.
                     </div>
                     <div className={"lg:basis-[46%]"}>
-                        <div className={"font-bold mb-4 flex flex-row gap-4 -ml-10"}><IconLadder
+                        <div className={"font-bold mb-4 flex flex-row gap-4  sm:-ml-10"}><IconLadder
                             className={"w-6 fill-white"}/>Leiternprüfung
                         </div>
                         Leitern und Tritte sind technische Arbeitsmittel und stellen eine Gefahrenquelle dar. Für Sie
                         als Unternehmen, das Leitern im Betrieb einsetzt, bieten wir daher eine umfassende Prüfung
                         entsprechend der gesetzlichen Vorschriften an.
                         Die Erstellung von Prüfbericht, Prüfplaketten und Leiternkontrollbuch übernehmen wir
-                        selbstverständlich ebenso.
+                        selbstverständlich ebenso. Mehr Informationen zur Leiterprüfung finden Sie <Link className={"text-accent-blue underline"} href={"/leiternpruefung"}>hier</Link>.
                     </div>
                     <div className={"lg:basis-[46%]"}>
-                        <div className={"font-bold mb-4 flex flex-row gap-4 -ml-10"}><IconTeaching
+                        <div className={"font-bold mb-4 flex flex-row gap-4  sm:-ml-10"}><IconTeaching
                             className={"w-6 fill-white"}/>Weiterbildungen / Seminare
                         </div>
                         Für Betriebe oder Einzelpersonen bieten wir Seminare über die gültige Erdernorm DIN 18014 an.
@@ -164,7 +164,7 @@ export default async function Home() {
                         ausmacht, näher.
                     </div>
                     <div className={"lg:basis-[46%]"}>
-                        <div className={"font-bold mb-4 flex flex-row gap-4 -ml-10"}><IconCoach
+                        <div className={"font-bold mb-4 flex flex-row gap-4  sm:-ml-10"}><IconCoach
                             className={"w-6 fill-white"}/>Beratungen & Gutachten
                         </div>
                         Sollten Sie Opfer von Blitzeinschlägen geworden sein, so unterstützen wir Sie gerne bei der

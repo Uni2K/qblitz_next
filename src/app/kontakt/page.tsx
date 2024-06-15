@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default async function Home() {
 
     return <div className={"z-10 bg-background/80 bg"}>
-        <div className={"flex  flex-col pb-12 flex-grow mt-20 md:mt-40 w-[80%] lg:w-[70%] mx-auto"}>
+        <div className={"flex  flex-col pb-12 flex-grow mt-20 md:mt-40 w-[85%] lg:w-[70%] mx-auto"}>
             <div className={"flex flex-row gap-8 flex-wrap xlmd:flex-nowrap"}>
                 <div className={"xlmd:basis-[47%] p-8 pl-0"}>
                     <div className={"text-sm text-accent-blue"}>Kontakt</div>
@@ -28,7 +28,7 @@ export default async function Home() {
                         Wir sind von Montag bis Freitag von <b>6:30</b> Uhr bis <b>17:00</b> Uhr erreichbar.
                     </div>
 
-                    <div className={"flex gap-4 mt-12"}>
+                    <div className={"flex gap-4 mt-12 flex-wrap"}>
                         <div className={"flex w-fit px-4 py-2 gap-4 items-center"}>
                             <IconPhone className={"h-4 fill-white"}/>
                             036484 / 22457

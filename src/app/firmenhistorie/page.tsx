@@ -6,6 +6,7 @@ import 'react-vertical-timeline-component/style.min.css';
 import Image from "next/image";
 import image1 from '../../../public/history/image1.png'
 import image2 from '../../../public/technical_drawing.png'
+import Link from "next/link";
 
 
 
@@ -26,7 +27,7 @@ export default function Home() {
                 <br/>
                 Einige relevante Ereignisse in der Firmengeschichte entnehmen Sie bitte dem nachfolgenden Zeitstrahl:
             </div>
-            <div className={"py-14"}>
+            <div className={"pb-14 pt-20"}>
                 <VerticalTimeline layout={"2-columns"} lineColor={'#0293E4'} className={'timeLiner'}>
                     <VerticalTimelineElement
                         visible={true}
@@ -92,7 +93,8 @@ export default function Home() {
                     >
                         <div className="timeLinerHeader">Schulung zur Leiternprüfung</div>
                         <div className={"timeLinerDescription"}>
-                            Erklärung zur “befähigte Person” nach Betriebssicherheitsverordnung (BetrSichV).
+                            Erklärung zur <b><i>befähigten Person</i></b> nach Betriebssicherheitsverordnung (BetrSichV).
+                            Nähere Informationen finden Sie <Link className={"text-accent-blue underline"} href={"/leiternpruefung"}>hier</Link>.
                         </div>
                     </VerticalTimelineElement>
 

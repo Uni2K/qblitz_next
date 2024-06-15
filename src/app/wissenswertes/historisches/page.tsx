@@ -8,7 +8,7 @@ import 'react-vertical-timeline-component/style.min.css';
 export default function Home() {
 
     return <div className={"z-10 bg-background/80 bg"}>
-        <div className={"flex  flex-col pb-12 flex-grow mt-40 w-[70%] mx-auto max-w-content"}>
+        <div className={"flex  flex-col pb-12 flex-grow mt-40 w-[85%] mx-auto max-w-content"}>
             <div className={"text-sm text-accent-blue"}>Wissenswertes</div>
             <h1>Historisches</h1>
             <div className={"mt-4"}>

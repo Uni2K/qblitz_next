@@ -645,7 +645,7 @@ const ImageGallery: React.FC = () => {
     return (
         <div>
             <Gallery
-margin={2}
+                margin={2}
                 images={fileNames}
                 thumbnailImageComponent={props => (
                     // @ts-ignore
@@ -664,7 +664,7 @@ margin={2}
                 <Lightbox
                     clickOutsideToClose={true}
                     mainSrc={"/gallery/" + fileNames[index].src.replace("tn_", "")}
-                    imageTitle={fileNames[index].src.replace("tn_", "").replace(".webp","")}
+                    imageTitle={fileNames[index].src.replace("tn_", "").replace(".webp", "")}
                     mainSrcThumbnail={fileNames[index].src}
                     nextSrc={"/gallery/" + fileNames[nextIndex].src.replace("tn_", "")}
                     nextSrcThumbnail={fileNames[nextIndex].src}

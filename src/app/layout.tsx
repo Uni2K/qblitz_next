@@ -1,9 +1,6 @@
 import './globals.css'
 import React from "react";
 import Navbar from "@/components/navbar";
-import Image from "next/image";
-import background from "../../public/background.png";
-
 
 export const metadata = {
     title: 'Prüfdienst für Blitzschutz',
@@ -20,20 +17,15 @@ export default function RootLayout({
 }) {
 
     return (
-        <html lang="de"
-        >
+        <html lang="de">
         <body>
-        {/*<Image*/}
-        {/*    src={background} className={"absolute top-0 left-0"}*/}
-        {/*    alt={"background"}/>*/}
         <Navbar/>
         <main className="flex flex-col">
             {children}
         </main>
         <footer className={"flex items-center justify-center p-8 pt-8 text-sm text-faded-navy"}>
-            Copyright 2024 @ Prüfdienst für Blitzschutz
+            Copyright 2024 | Erstellt mit <div className="inline-block cursor-grabbing  mx-1 hover:animate-spin">❤️</div> von Prüfdienst für Blitzschutz
         </footer>
-
         </body>
         </html>
     )

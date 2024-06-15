@@ -10,12 +10,12 @@ import tscherenkov from '../../../../public/lightningtypes/tscherenkov.png'
 import sprites from '../../../../public/lightningtypes/sprites.png'
 import leuchten from '../../../../public/lightningtypes/leuchten.png'
 
-import React from "react";
+import React, {ReactNode} from "react";
 import {StaticImageData} from "next/image";
 import Image from "next/image";
-import IconLink from "@/components/icons/iconLink";
 import {Metadata} from "next";
 import SourceTag from "@/components/sourceTag";
+import IconYoutube from "@/components/icons/iconYoutube";
 
 
 export const metadata: Metadata = {
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 type DataCard = {
     title: string,
-    description: string,
+    description: string | ReactNode,
     image?: StaticImageData,
     source?: { title: string, url?: string }
 }
@@ -33,19 +33,24 @@ type DataCard = {
 const data: DataCard[] = [
     {
         title: "Linienblitz",
-        description: `Ein Linienblitz hat keinerlei Verzweigungen. Er sucht sich jedoch nicht immer den direkten Weg zum Erdboden, sondern kann auch Bögen beschreiben, die aus einer bestimmten Perspektive als Knoten und kreisförmige Verschlingungen gesehen werden können.`,
+        description: <>Ein Linienblitz ist eine spezifische Art von Blitz, bei der die elektrische Entladung in Form
+            einer geraden oder leicht gebogenen Linie zwischen der Wolke und dem Boden verläuft. Im Gegensatz zu anderen
+            Blitzarten, wie dem Verästelungsblitz, zeigt der Linienblitz keine Verzweigungen. Während er sich seinen Weg
+            durch die Atmosphäre bahnt, folgt er nicht immer dem direktesten Weg, sondern kann Bögen und Kurven
+            beschreiben. <br/><br/> Linienblitze sind eine der häufigsten Blitzarten und bieten ein eindrucksvolles
+            Naturschauspiel, insbesondere wenn sie sich über große Entfernungen erstrecken.</>,
         image: linie,
         source: {title: "Andrea Szimon", url: 'https://commons.wikimedia.org/wiki/File:Linienblitz_Sachsen_07.JPG'}
     },
     {
         title: "Flächenblitz",
-        description: `Ein Flächenblitz zeigt zahlreiche Verzweigungen vom Hauptblitzkanal.Ein Flächenblitz zeigt zahlreiche Verzweigungen vom Hauptblitzkanal.Ein Flächenblitz zeigt zahlreiche Verzweigungen vom Hauptblitzkanal.`,
+        description: `Ein Flächenblitz zeigt zahlreiche Verzweigungen vom Hauptblitzkanal und nimmt deshalb eine relativ große Fläche am Himmel ein. Diese Blitzentladung führt zum Aufleuchten ganzer Wolkenflächen.`,
         image: flaeche,
         source: {title: "Amelia Maloney", url: 'https://unsplash.com/de/fotos/blitze-in-der-nacht-dg5KvcVv7tU'}
     },
     {
         title: "Wolke-Wolke Blitz",
-        description: `Die meisten Blitze verlaufen zwischen den Wolken und erreichen nicht den Boden. Von ihnen geht keine Gefahr aus. Es kann aber jederzeit zu einem gefährlichen Blitzschlag kommen.`,
+        description: `Ein Wolke-Wolke-Blitz ist ein Blitz, der zwischen zwei Wolken auftritt, ohne die Erdoberfläche zu erreichen. Er überbrückt die elektrische Spannung zwischen den Wolken und ist oft als leuchtender Streifen am Himmel zu sehen.`,
         image: wolke,
         source: {
             title: "Joachim Siewert",
@@ -54,7 +59,7 @@ const data: DataCard[] = [
     },
     {
         title: "Perlenschnurblitz",
-        description: `Der Perlschnurblitz ist eine Blitzart, bei der der Blitz nicht durch einen zusammenhängenden Blitzkanal gekennzeichnet ist, sondern in einzelne, meistens nur wenige Meter lange Segmente zerfällt. Diese einzelnen Segmente leuchten heller und meistens auch etwas länger als ein "normaler" Linienblitz. Von weitem betrachtet sehen die kurzen, leuchtenden Segmente des Blitzes wie eine Perlenschnur aus.`,
+        description: `Der Perlschnurblitz ist eine besondere Blitzart, bei der der Blitzkanal in mehrere kurze, wenige Meter lange Segmente aufgeteilt ist. Diese leuchten intensiver und länger als ein gewöhnlicher Linienblitz, wodurch der Blitz wie eine Kette von Perlen erscheint.`,
         image: perl,
         source: {
             title: "Jo Blakesley",
@@ -63,7 +68,7 @@ const data: DataCard[] = [
     },
     {
         title: "Kugelblitz",
-        description: `Die Existenz des (meistens als etwa fußballgroße Erscheinung beschriebenen) Kugelblitzes ist eine heute noch umstrittene Frage, obwohl es durchaus Fotos gibt. Die nur selten berichteten Phänomene können angeblich durch Mauern dringen und sich langsam in Bodennähe bewegen. Künstliche Kugelblitze sollen in einigen Laboren schon erzeugt worden sein.`,
+        description: `Ein Kugelblitz ist ein seltenes, kugelförmiges Blitzphänomen, oft etwa fußballgroß, dessen Existenz noch umstritten ist. Diese Erscheinungen sollen durch Mauern dringen können und sich in Bodennähe bewegen. Es gibt Berichte, dass Kugelblitze in Laboren künstlich erzeugt wurden.`,
         image: kugel,
         source: {
             title: "Storm Wolf",
@@ -72,7 +77,7 @@ const data: DataCard[] = [
     },
     {
         title: "Wetterleuchten",
-        description: `Unter Wetterleuchten (mittelhochdt. weterleichen zu "weter" (Wetter) + "leichen" (tanzen, hüpfen), nicht verwandt mit leuchten, wie oft angenommen) wird meistens der Widerschein von Blitzen verstanden, wenn man die Blitze selbst nicht sieht.`,
+        description: `Wetterleuchten bezeichnet den Widerschein von Blitzen, die man selbst nicht sieht. Der Begriff stammt aus dem Mittelhochdeutschen "weterleichen", wobei "weter" für Wetter und "leichen" für tanzen oder hüpfen steht, und ist nicht mit "leuchten" verwandt, wie oft angenommen wird.`,
         image: leuchten,
         source: {
             title: "Gábor Paál",
@@ -81,7 +86,7 @@ const data: DataCard[] = [
     },
     {
         title: "Red Sprite",
-        description: `Die „Kobolde“ (engl.: Sprites) tauchen in der Mesosphäre in einer Höhe von etwa 70km ebenfalls über gewaltigen Gewittern auf. Sie breiten sich im Millisekundenbereich nach oben und unten aus, erscheinen meistens rötlich und haben unterschiedliche Formen, von Pilzgebilden bis hin zu Lattenzäunen.`,
+        description: `Red Sprites, auch als „Kobolde“ bekannt, sind leuchtende Erscheinungen in der Mesosphäre, etwa 70 km über gewaltigen Gewittern. Sie breiten sich innerhalb von Millisekunden nach oben und unten aus, erscheinen meist rötlich und zeigen unterschiedliche Formen, von Pilzgebilden bis hin zu Lattenzäunen.`,
         image: sprites,
         source: {
             title: "Stephane Vetter",
@@ -90,7 +95,7 @@ const data: DataCard[] = [
     },
     {
         title: "Tscherenkov Blitze",
-        description: `Die „Kobolde“ (engl.: Sprites) tauchen in der Mesosphäre in einer Höhe von etwa 70km ebenfalls über gewaltigen Gewittern auf. Sie breiten sich im Millisekundenbereich nach oben und unten aus, erscheinen meistens rötlich und haben unterschiedliche Formen, von Pilzgebilden bis hin zu Lattenzäunen.`,
+        description: `Tscherenkov-Blitze am Himmel entstehen, wenn hochenergetische kosmische Teilchen durch die Atmosphäre fliegen und sich schneller als das Licht in der Luft bewegen, wodurch ein charakteristisches blaues Leuchten erzeugt wird.`,
         image: tscherenkov,
         source: {
             title: "European Southern Observatory",
@@ -99,7 +104,7 @@ const data: DataCard[] = [
     },
     {
         title: "Blue Jets",
-        description: `Erste Berichte stammen aus dem Jahr 1989, doch vermutlich gab es schon vor dieser Zeit Beobachtungen von Blue Jets und Red Sprites. Flugzeugpiloten, die dieses Phänomen beobachten konnten, behielten es für sich, da sie sonst eventuell außer Dienst gestellt worden wären, wenn man ihnen nicht geglaubt hätte.`,
+        description: `Blue Jets sind seltene atmosphärische Phänomene, die als leuchtende blaue Lichtstrahlen erscheinen und sich von der Oberseite von Gewitterwolken in die Stratosphäre ausbreiten. Sie entstehen durch starke elektrische Entladungen in Gewitterwolken und erstrecken sich typischerweise bis in Höhen von etwa 50 Kilometern.`,
         image: jet,
         source: {
             title: "ESA",
@@ -108,7 +113,7 @@ const data: DataCard[] = [
     },
     {
         title: "Elves",
-        description: `Bei den „Elfen“ (engl.: Elves) handelt es sich um Blitzentladungen, die die Gase in der Ionosphäre erleuchten. Sie treten über großen Gewitterwolken als rötlicher Ring in etwa 90km Höhe auf und werden vermutlich durch Wolkenblitze induziert.`,
+        description: `Elves sind leuchtende, ringförmige Phänomene in der Ionosphäre, die in Höhen von etwa 90 bis 100 Kilometern auftreten. Sie entstehen durch elektromagnetische Impulse von starken Blitzen und erscheinen als schnell expandierende, rote Lichtkreise, die nur wenige Millisekunden dauern.`,
         image: elves,
         source: {
             title: "Valter Binotto",
@@ -117,29 +122,20 @@ const data: DataCard[] = [
     },
     {
         title: "Elmsfeuer",
-        description: `Ein Elbsfeuer ist ein atmosphärisches Phänomen, das durch die Reflexion des Sonnenlichts an kleinen Eisteilchen in hohen Wolken entsteht, wodurch der Himmel in intensiven Rot- und Orangetönen leuchtet. Dieses seltene und beeindruckende Schauspiel wird oft in den frühen Morgen- oder späten Abendstunden beobachtet und verleiht der Landschaft eine fast surreale, feurige Atmosphäre.`,
+        description: `Ein Elmsfeuer ist ein atmosphärisches Phänomen, bei dem elektrische Ladung die Luft ionisiert und ein bläuliches oder violettes Leuchten an spitzen Objekten während Gewittern erzeugt. Ein Elbsfeuer entsteht durch Sonnenlicht, das an Eisteilchen in hohen Wolken reflektiert wird, und führt zu intensiven Rot- und Orangetönen am Himmel, oft in den frühen Morgen- oder späten Abendstunden.`,
         image: elms,
         source: {
             title: "Silver Wings",
             url: 'https://die-wetterversicherung.de/blog/wp-content/uploads/2021/09/elmsfeuer-st.-elmos-feuer-flugzeug-spanien-wetterphaenomen-gefaehrlich-blitz-gewitter-haeufigkeit.jpg'
         }
     },
-    // {
-    //     title: "Plasmafäden",
-    //     description: `Plasmafäden können im Nahbereich eines Blitzschlages auftreten. Kurz vor dem eigentlichen Blitz ist die Spannung zwischen dem Erdboden und der Luft sehr groß. Meistens ist es so, dass sich zunächst ein unsichtbarer Blitzkanal bildet, der dann den Kurzschluss verursacht, wobei sich die Spannung durch den dann sichtbaren Blitz abbaut. Manchmal bilden sich aber kurz bevor die Entladung erfolgt mehrere fadenartige, sichtbare Plasmastränge, die vom Erdboden nach oben streben und eine Länge von einigen cm bis hin zu mehreren Metern haben. Einer dieser Plasmafäden stellt dann den Kurzschluss her und es kommt zum Blitzschlag.`,
-    // },
-    // {
-    //     title: "Positive Blitze",
-    //     description: `Ein positiver Blitz ist ein Blitz, bei dem die Blitzentladung aus dem oberen, positiv geladenen Teil der Wolke zum Boden erfolgt. Diese Blitze sind um einiges stärker als "normale" negative Blitze und können kilometerweit vom eigentlichen Gewitter entfernt einschlagen.`,
-    // }
-
 ]
 
 
 export default async function Home() {
 
     return <div className={"z-10 bg-background/80 bg"}>
-        <div className={"flex  flex-col pb-12 flex-grow max-w-extended mt-20 md:mt-40 w-[85%] mx-auto"}>
+        <div className={"flex flex-col pb-12 flex-grow max-w-extended mt-20 md:mt-40 w-[85%] mx-auto"}>
             <div className={"text-sm text-accent-blue"}>Wissenswertes</div>
             <h1>Blitzarten</h1>
             <div className={"mt-4"}>
@@ -148,16 +144,26 @@ export default async function Home() {
             </div>
             <div className={"flex flex-wrap gap-20 mt-24"}>
                 <div className={"w-full mb-20"}>
-                    {data.slice(0, 1).map(value => <div key={value.title} className={"flex flex-row flex-wrap min-[791px]:flex-nowrap flex-grow flex-shrink gap-16"}>
+                    {data.slice(0, 1).map(value => <div key={value.title}
+                                                        className={"flex flex-row flex-wrap min-[791px]:flex-nowrap flex-grow flex-shrink gap-16"}>
                         <div className={"md:basis-1/2 max-w-[600px]"}>
-                            {value.image && <Image alt={value.title} src={value.image} className={"w-full"}/>}
+                            <div className={"relative"}>
+                                {value.image && <Image alt={value.title} src={value.image} className={"w-full"}/>}
+                                <div className={"relative bottom-8 sm:bottom-3"}>
+                                    <SourceTag sourceUrl={value?.source?.url} sourceTitle={value?.source?.title}/>
+                                </div>
+                            </div>
                         </div>
+
                         <div className={"md:basis-1/2"}>
                             <h3 className={"mb-2"}>{value.title}</h3>
-                            <div className={"text-faded-navy max-w-[400px]"}>{value.description}</div>
+                            <div className={"text-faded-navy max-w-[450px]"}>{value.description}</div>
                             <div className={"flex flex-row gap-4 text-sm mt-8"}>
-                                <a href={value.source?.url} className={"border border-accent-blue px-4 py-1 cursor-pointer hover:bg-default-hover"}>Mehr Informationen</a>
-                                <button className={"hover:bg-default-hover border border-primary-error px-4 py-1"}><a href={"https://www.youtube.com/watch?v=p-TCPggwUzI"} target={"_blank"} className={""}>Video aufrufen</a></button>
+                                <button
+                                    className={"hover:bg-default-hover border border-[#c4302b] px-4 pl-2 py-1 flex gap-2 items-center"}>
+                                    <IconYoutube className={"w-6 h-6"}/><a
+                                    href={"https://www.youtube.com/watch?v=p-TCPggwUzI"} target={"_blank"}
+                                    className={""}>Video ansehen</a></button>
                             </div>
                         </div>
 
@@ -169,8 +175,11 @@ export default async function Home() {
                     <div key={"bl_" + index}
                          className={"flex flex-col md:basis-[27%] min-w-[300px] max-w-[400px] flex-grow flex-shrink"}>
                         <div className={"relative"}>
-                            {value.image && <Image alt={value.title} src={value.image} className={"aspect-[16/12] flex-grow"}/>}
-                            <SourceTag url={value?.source?.url} title={value?.source?.title}/>
+                            {value.image &&
+                                <Image alt={value.title} src={value.image} className={"aspect-[16/12] flex-grow"}/>}
+                            <div className={"relative bottom-8 sm:bottom-3"}>
+                                <SourceTag sourceUrl={value?.source?.url} sourceTitle={value?.source?.title}/>
+                            </div>
                             <div className={"mt-4 flex items-center pr-2"}>
                                 <h3 className={""}>{value.title}</h3>
                             </div>
