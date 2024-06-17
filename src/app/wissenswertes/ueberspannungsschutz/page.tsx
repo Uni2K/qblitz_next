@@ -72,8 +72,8 @@ export default async function Home() {
             <div>
                 Nachträglich kann man Überspannungsschutzsysteme in Häuser einbauen lassen. Gefährdet sind Häuser immer,
                 wo bereits ein Überspannungsschaden aufgetreten ist. Am besten ist ein Drei-Stufen-Schutz, den die
-                Fachleute in Grobschutz (im Strom-Anschlusskasten am Haus), Mittelschutz (in den Verteilerkästen im
-                Haus) und Feinschutz (zwischen Steckdose und Gerät) einteilen. Grob- und Mittelschutz sollten nur von
+                Fachleute in Typ 1 (im Strom-Anschlusskasten am Haus), Typ 2 (in den Verteilerkästen im
+                Haus) und Typ 3 (zwischen Steckdose und Gerät) einteilen. Grob- und Mittelschutz sollten nur von
                 ausgebildeten Fachhandwerkern installiert werden. Für ein normales Wohnhaus wird der Einbau dieses
                 Schutzes zwischen 650 und 1000€ kosten.
             </div>
@@ -87,14 +87,11 @@ export default async function Home() {
                 Adapter oder Steckerleisten wirklich gut sind und welche nur bedingt nützlich sind.<br/>
                 Experten empfehlen Verbrauchern fünf Punkte zur Orientierung:
                 <ul>
-                    <li>Produkte von Markenfirmen kaufen (z.B. Pröbster, Dehn, OBO Bettermann, Phönix Contact)</li>
-                    <li> Die Hersteller sollten eine Garantie für die Funktionsfähigkeit der Geräte übernehmen</li>
+                    <li>Produkte von Markenfirmen kaufen (z.B. Pröpster, Dehn, OBO Bettermann, Phönix Contact)</li>
+                    <li>Die Hersteller sollten eine Garantie für die Funktionsfähigkeit der Geräte übernehmen</li>
                     <li>Das Geräte sollte solide aussehen und aus guten Materialien bestehen.</li>
-                    <li> Es sollte auf jeden Fall die Schutzklasse D erfüllen.</li>
+                    <li>Es sollte auf jeden Fall die Schutzklasse D erfüllen.</li>
                 </ul>
-                Der Verband der Schadenversicherer will ab Mitte 2005 ein VDS-Zertifikat für
-                Feinschutzgeräte vergeben. Derzeit verhandelt er noch mit den Herstellern über die Kriterien, die gute
-                Feinschutzgeräte erfüllen müssen.
             </div>
             <h2>Die schlechte Nachricht, fast zum Schluss:</h2>
             <div>

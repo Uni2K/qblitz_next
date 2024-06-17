@@ -25,7 +25,7 @@ export default async function Home() {
                         oder Angebotsanforderung. Wir helfen Ihnen gerne persönlich weiter.
                     </div>
                     <div className={"mb-4"}>Schreiben Sie uns eine E-Mail oder rufen Sie uns einfach direkt an.<br className={"hidden md:block"}/>
-                        Wir sind von Montag bis Freitag von <b>6:30</b> Uhr bis <b>17:00</b> Uhr erreichbar.
+                        Wir sind von Montag bis Freitag von <b>6:30</b> Uhr bis <b>16:00</b> Uhr erreichbar.
                     </div>
 
                     <div className={"flex gap-4 mt-12 flex-wrap"}>
@@ -66,8 +66,8 @@ export default async function Home() {
 
                 <p>Prüfdienst für Blitzschutz</p>
                 <p>Bernd Zimmermann</p>
-                <p>Am Gries 407381</p>
-                <p>Pößneck</p>
+                <p>Am Gries 4</p>
+                <p>07381 Pößneck</p>
                 <p>Tel: 015774476108</p>
                 <p>info@qblitz.de</p>
 

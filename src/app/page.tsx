@@ -129,7 +129,7 @@ export default async function Home() {
                         Gesamtüberblick über die Fülle der realisierten Schutzmaßnahmen.<br/>
                         <br/>
                         Alle von uns durchgeführten technischen Zeichnungen sind in Farbe und können den Prüfunterlagen
-                        sowohl gedruckt als auch digital beigefügt werden.
+                        sowohl gedruckt als auch digital angefertigt werden.
                     </div>
 
                 </div>
